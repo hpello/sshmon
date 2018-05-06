@@ -1,0 +1,50 @@
+@charset "utf-8";
+
+@import "../node_modules/font-awesome/scss/font-awesome";
+
+@import "../node_modules/bulmaswatch/darkly/_variables";
+@import "../node_modules/bulma/bulma";
+@import "../node_modules/bulmaswatch/darkly/_overrides";
+
+.panel {
+  >:first-child {
+    border-top-left-radius: $panel-heading-radius;
+    border-top-right-radius: $panel-heading-radius;
+  }
+  >:last-child {
+    border-bottom-left-radius: $panel-heading-radius;
+    border-bottom-right-radius: $panel-heading-radius;
+  }
+}
+
+// square icon buttons
+.button {
+  height: auto;
+  width: auto;
+}
+
+// darkly
+.panel-block {
+  &:hover {
+    color: inherit;
+  }
+}
+.table {
+  background-color: inherit;
+}
+
+// add border around tags to increase visibility (e.g. for darkly)
+.panel-block:first-child {
+  .tag {
+    box-shadow: 0 0 0 0.1em rgba(#eeeeee, 0.1) inset;
+  }
+}
+
+// increase disabled button visibility (e.g. for darkly)
+.button[disabled] {
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+// recommended themes: default, litera, cyborg, flatly, superhero

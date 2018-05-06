@@ -1,0 +1,39 @@
+{
+  "name": "sshmon-server",
+  "version": "",
+  "scripts": {
+    "build": "tsc --outDir build",
+    "build-watch": "npm run build -- --watch | ruby -ne 'puts $_.gsub(/\\x1Bc/, \"\")'",
+    "clean": "! test -e build || rm -r build",
+    "lint": "../node_modules/.bin/tslint -p .",
+    "start": "node build/cli.js"
+  },
+  "dependencies": {
+    "bunyan": "^1.8.12",
+    "chokidar": "^1.7.0",
+    "http-proxy": "^1.16.2",
+    "joi": "^13.0.2",
+    "js-yaml": "^3.10.0",
+    "json-stable-stringify": "^1.0.1",
+    "lodash": "^4.17.4",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "restify": "^6.3.4",
+    "socket.io": "^2.0.4",
+    "tmp": "0.0.33",
+    "yargs": "^11.0.0"
+  },
+  "devDependencies": {
+    "@types/chokidar": "^1.7.4",
+    "@types/http-proxy": "^1.12.3",
+    "@types/joi": "^13.0.5",
+    "@types/js-yaml": "^3.10.1",
+    "@types/json-stable-stringify": "^1.0.32",
+    "@types/lodash": "^4.14.101",
+    "@types/restify": "^5.0.7",
+    "@types/socket.io": "^1.4.31",
+    "@types/tmp": "0.0.33",
+    "@types/yargs": "^11.0.0",
+    "typescript": "^2.7.1"
+  }
+}

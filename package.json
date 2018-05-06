@@ -1,0 +1,32 @@
+{
+  "name": "sshmon",
+  "version": "0.3.14",
+  "scripts": {
+    "build": "(cd server && npm run build) && (cd gui && npm run build)",
+    "build-watch": "(cd server && npm run build-watch) & (cd gui && npm run build-watch)",
+    "clean": "(cd server && npm run clean) && (cd gui && npm run clean)",
+    "tsc": "tsc --outDir /tmp/none",
+    "tsc-watch": "npm run tsc -- --watch",
+    "install-all": "npm install & (cd server && npm install) && (cd gui && npm install)",
+    "prune-all": "npm prune --production && (cd server && npm prune --production) && (cd gui && npm prune --production)",
+    "start": "(cd server && npm run start)",
+    "pkg": "mkdir -p build && pkg . -o build/sshmon",
+    "pkg-clean": "! test -e build || rm -r build",
+    "deploy": "npm run pkg-clean && npm run clean && npm run build && npm run pkg"
+  },
+  "devDependencies": {
+    "tslint": "^5.9.1",
+    "tslint-config-airbnb": "^5.6.0",
+    "typescript": "^2.7.1"
+  },
+  "bin": "server/build/cli.js",
+  "pkg": {
+    "assets": [
+      "gui/public",
+      "gui/node_modules/font-awesome/fonts"
+    ]
+  },
+  "dependencies": {
+    "pkg": "^4.3.1"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "lib": ["es5", "es6", "es7"]
+  },
+  "include": [
+    "src"
+  ]
+}
