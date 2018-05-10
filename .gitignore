@@ -1,5 +1,3 @@
 node_modules/
 build/
 
-gui/public/bundle.js
-gui/public/main.css
