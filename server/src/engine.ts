@@ -7,7 +7,7 @@ import { store } from './store'
 import { System } from './system'
 import { disconnectAllHosts } from './utils/disconnect-all-hosts'
 import { setupGracefulShutdown } from './utils/graceful-shutdown'
-import { createLogger } from './utils/log'
+import { createLogger } from './log'
 
 const log = createLogger(__filename)
 

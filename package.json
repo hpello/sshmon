@@ -8,8 +8,6 @@
     "tsc": "tsc --outDir /tmp/none",
     "tsc-watch": "npm run tsc -- --watch",
     "install-all": "npm install & (cd server && npm install) && (cd gui && npm install)",
-    "prune-all": "npm prune --production && (cd server && npm prune --production) && (cd gui && npm prune --production)",
-    "start": "(cd server && npm run start)",
     "pkg": "mkdir -p build && pkg . -o build/sshmon",
     "pkg-clean": "! test -e build || rm -r build",
     "deploy": "npm run pkg-clean && npm run clean && npm run build && npm run pkg"
@@ -23,7 +21,8 @@
   "pkg": {
     "assets": [
       "gui/public",
-      "gui/node_modules/font-awesome/fonts"
+      "gui/node_modules/font-awesome/fonts",
+      "server/node_modules/bunyan"
     ]
   },
   "dependencies": {

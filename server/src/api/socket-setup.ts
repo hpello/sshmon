@@ -5,7 +5,7 @@ import { thunks as forwardThunks } from '../forward'
 import { APIEndpoint, apiKeys } from './api'
 import { socketTypes, SocketMessageError } from './constants'
 import { AsyncThunkAction, Store } from '../types/redux'
-import { createLogger } from '../utils/log'
+import { createLogger } from '../log'
 
 const log = createLogger(__filename)
 

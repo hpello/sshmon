@@ -1,6 +1,6 @@
 import { socketTypes } from './constants'
 import { State } from '../types/redux'
-import { createLogger } from '../utils/log'
+import { createLogger } from '../log'
 
 const log = createLogger(__filename)
 

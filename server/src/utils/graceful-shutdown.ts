@@ -1,4 +1,4 @@
-import { createLogger } from './log'
+import { createLogger } from '../log'
 
 const log = createLogger(__filename)
 

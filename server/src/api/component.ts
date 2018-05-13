@@ -7,7 +7,7 @@ import { ProxyTarget } from './simple-proxy-server'
 import { SocketNotify } from './socket-notify'
 import { State, Store } from '../types/redux'
 import { onStateChange } from './utils'
-import { createLogger } from '../utils/log'
+import { createLogger } from '../log'
 import { formatURL } from '../utils/server-url'
 import { makeTmpPath } from '../utils/tmp'
 

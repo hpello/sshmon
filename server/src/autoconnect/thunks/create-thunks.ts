@@ -4,7 +4,7 @@ import { actions } from '../actions'
 import { AutoconnectConfig } from '../types'
 import { AsyncThunkAction, Dispatch, GetState } from '../../types/redux'
 import { ErrorWithCode } from '../../utils/error-with-code'
-import { createLogger } from '../../utils/log'
+import { createLogger } from '../../log'
 
 const log = createLogger(__filename)
 

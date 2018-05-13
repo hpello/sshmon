@@ -20,7 +20,7 @@ import { configObjectToState, configStateToObject } from './convert'
 import { ConfigSchema } from './schema'
 import { load, save } from './serialize'
 import { ConfigConfig, ConfigType } from './types'
-import { createLogger } from '../utils/log'
+import { createLogger } from '../log'
 
 const log = createLogger(__filename)
 

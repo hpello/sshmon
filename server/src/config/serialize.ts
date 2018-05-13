@@ -3,7 +3,7 @@ import { promisify } from 'util'
 import { readFile, writeFile } from 'fs'
 
 import { configSchema, ConfigSchema } from './schema'
-import { createLogger } from '../utils/log'
+import { createLogger } from '../log'
 
 const log = createLogger(__filename)
 
