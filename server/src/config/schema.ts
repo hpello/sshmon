@@ -1,4 +1,4 @@
-import { any, alternatives, boolean, object, string } from 'joi'
+import { any, alternatives, array, boolean, object, string } from 'joi'
 
 const replaceIfNull = (schema: any, defoult: any) => alternatives().try(
   schema,
@@ -22,7 +22,8 @@ const host = object({
     host: string(),
     config: object().pattern(/.*/, string())
   }),
-  forward: object().pattern(/.*/, forwarding),
+  forward: array().items(object().pattern(/.*/, forwarding).length(1))
+    .unique((a, b) => Object.keys(a)[0] === Object.keys(b)[0]),
   label: string(),
   autostart: boolean(),
   autoretry: boolean()
@@ -33,7 +34,8 @@ const config = object({
 })
 
 export const configSchema = object({
-  hosts: object().pattern(/.*/, replaceIfNull(host, {})),
+  hosts: array().items(object().pattern(/.*/, replaceIfNull(host, {})).length(1))
+    .unique((a, b) => Object.keys(a)[0] === Object.keys(b)[0]),
   config
 }).default(null) // INFO hpello empty yaml file yields undefined
 
@@ -44,22 +46,22 @@ export type ForwardingSchema = {
   autoretry?: boolean
 } | string
 
-export interface HostSchema {
+export type HostSchema = {
   ssh?: {
     host?: string,
     config?: { [key: string]: string }
   },
-  forward?: { [key: string]: ForwardingSchema },
+  forward?: { [key: string]: ForwardingSchema }[],
   label?: string,
   autostart?: boolean,
   autoretry?: boolean
-}
+} | null
 
 export interface ConfigConfigSchema {
   autosave?: boolean
 }
 
 export type ConfigSchema = {
-  hosts?: { [key: string]: HostSchema },
+  hosts?: { [key: string]: HostSchema }[],
   config?: ConfigConfigSchema
 } | null

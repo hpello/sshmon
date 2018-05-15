@@ -1,4 +1,4 @@
-import { find, flatten, map } from 'lodash'
+import { find, flatten } from 'lodash'
 import { ConfigConfig, ConfigType } from './types'
 import { parseForwardingSpec, serializeForwardingSpec } from './forwarding-spec'
 import { ConfigConfigSchema, ConfigSchema, HostSchema, ForwardingSchema } from './schema'
@@ -19,7 +19,9 @@ const makeForwardingState = (forwarding: ForwardingSchema): ForwardingConfig => 
   return { spec, label }
 }
 
-const makeHostState = (id: string, host: HostSchema): HostConfig => {
+const makeHostState = (id: string, h: HostSchema): HostConfig => {
+  const host = h === null ? {} : h
+
   const sshHost = host.ssh && host.ssh.host ? host.ssh.host : id
   const sshConfig = host.ssh && host.ssh.config ? host.ssh.config : {}
   const ssh = {
@@ -31,7 +33,9 @@ const makeHostState = (id: string, host: HostSchema): HostConfig => {
   return { ssh, label }
 }
 
-const makeAutoconnectState = (host: HostSchema): AutoconnectConfig => {
+const makeAutoconnectState = (h: HostSchema): AutoconnectConfig => {
+  const host = h === null ? {} : h
+
   const start = host.autostart || false
   const retry = host.autoretry || false
   return { start, retry }
@@ -51,19 +55,27 @@ const makeConfigState = (config: ConfigConfigSchema): ConfigConfig => ({
   autosave: config.autosave || false
 })
 
+const mapKVArray = <T>(array: { [key: string]: T }[], func: (value: T, key: string) => any) => {
+  return array.map((x) => {
+    const key = Object.keys(x)[0]
+    const value = x[key]
+    return func(value, key)
+  })
+}
+
 export const configObjectToState = (config: ConfigSchema): ConfigType => {
   const defaultConfigConfig = { autosave: false }
   if (config === null) {
     return { hosts: [], forwardings: [], autoconnects: [], autoforwards: [], config: defaultConfigConfig }
   }
 
-  const hosts = map(config.hosts || {}, (v, id) => ({ id, config: makeHostState(id, v) }))
-  const forwardings = flatten(map(config.hosts || {}, (v, id) =>
-    map(v.forward || {}, (vv, fwdId) => ({ id, fwdId, config: makeForwardingState(vv) })
+  const hosts = mapKVArray(config.hosts || [], (v, id) => ({ id, config: makeHostState(id, v) }))
+  const forwardings = flatten(mapKVArray(config.hosts || [], (v, id) =>
+    mapKVArray((v || {}).forward || [], (vv, fwdId) => ({ id, fwdId, config: makeForwardingState(vv) })
   )))
-  const autoconnects = map(config.hosts || {}, (v, id) => ({ id, config: makeAutoconnectState(v) }))
-  const autoforwards = flatten(map(config.hosts || {}, (v, id) =>
-    map(v.forward || {}, (vv, fwdId) => ({ id, fwdId, config: makeAutoforwardState(vv) })
+  const autoconnects = mapKVArray(config.hosts || [], (v, id) => ({ id, config: makeAutoconnectState(v) }))
+  const autoforwards = flatten(mapKVArray(config.hosts || [], (v, id) =>
+    mapKVArray((v || {}).forward || [], (vv, fwdId) => ({ id, fwdId, config: makeAutoforwardState(vv) })
   )))
   const configConfig = config.config ? makeConfigState(config.config) : defaultConfigConfig
 
@@ -97,13 +109,14 @@ const makeSSHObject = (id: string, host: HostConfig) => {
 const makeHostObject = (id: string, host: HostConfig, forwardings: { id: string, fwdId: string, config: ForwardingConfig }[], autoconnect: AutoconnectConfig | null, autoforwards: { id: string, fwdId: string, config: AutoforwardConfig }[]): HostSchema => {
   const ssh = makeSSHObject(id, host)
 
-  const forward = forwardings.reduce((acc, forwarding) => {
+  const forward = forwardings.map((forwarding) => {
     const autoforward = find(autoforwards, { id, fwdId: forwarding.fwdId })
-    acc[forwarding.fwdId] = makeForwardingObject(forwarding.config, autoforward ? autoforward.config : null)
-    return acc
-  }, {} as { [key: string]: ForwardingSchema })
+    const result: { [key: string]: ForwardingSchema } = {}
+    result[forwarding.fwdId] = makeForwardingObject(forwarding.config, autoforward ? autoforward.config : null)
+    return result
+  })
 
-  const result: any = {}
+  const result: HostSchema = {}
 
   if (host.label) { result.label = host.label }
   if (Object.keys(ssh).length > 0) { result.ssh = ssh }
@@ -123,12 +136,13 @@ const makeConfigObject = (config: ConfigConfig): ConfigConfigSchema => {
 }
 
 export const configStateToObject = (config: ConfigType): ConfigSchema => {
-  const hosts = config.hosts.reduce((acc, host) => {
+  const hosts = config.hosts.map((host) => {
     const forwardings = config.forwardings.filter(x => x.id === host.id)
     const autoconnect = find(config.autoconnects, { id: host.id })
-    acc[host.id] = makeHostObject(host.id, host.config, forwardings, autoconnect ? autoconnect.config : null, config.autoforwards)
-    return acc
-  }, {} as { [key: string]: HostSchema })
+    const result: { [key: string]: HostSchema | null } = {}
+    result[host.id] = makeHostObject(host.id, host.config, forwardings, autoconnect ? autoconnect.config : null, config.autoforwards)
+    return result
+  })
 
   const c = makeConfigObject(config.config)
 
