@@ -1,0 +1,11 @@
+hosts:
+  - server:
+      autostart: true
+      autoretry: true
+      forward:
+        - local-forwarding:
+            spec: L 1234 80
+            autostart: true
+        - http-forwarding:
+            spec: H 80
+            autostart: true

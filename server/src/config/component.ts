@@ -20,7 +20,7 @@ import { configObjectToState, configStateToObject } from './convert'
 import { ConfigSchema } from './schema'
 import { load, save } from './serialize'
 import { ConfigConfig, ConfigType } from './types'
-import { createLogger } from '../utils/log'
+import { createLogger } from '../log'
 
 const log = createLogger(__filename)
 
@@ -78,20 +78,18 @@ const defaultConfig = (): ConfigSchema => ({
 const ensureDefaultConfigFile = async (): Promise<string> => {
   const dir = join(homedir(), '.sshmon')
   if (!(await exist(dir))) {
-    log.debug('create directory at', dir)
+    log.info('create directory at', dir)
     await mkdirAsync(dir, 0o700)
   }
-  const statDir = await statAsync(dir)
-  if ((statDir.mode & 0o777) !== 0o700) { throw new Error(`Bad permissions for config dir ${dir}`) }
 
   const configFile = join(dir, 'config.yml')
   if (!(await exist(configFile))) {
-    log.debug('create config file at', configFile)
+    log.info('create config file at', configFile)
     await writeFileAsync(configFile, '', { mode: 0o644 })
     await save(defaultConfig(), configFile)
   }
   const statFile = await statAsync(configFile)
-  if ((statFile.mode & 0o777) !== 0o644) { throw new Error(`Bad permissions for config file ${configFile}`) }
+  if ((statFile.mode & 0o022) !== 0) { throw new Error(`Bad permissions for config file ${configFile}`) }
 
   return configFile
 }

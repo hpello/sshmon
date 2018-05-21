@@ -1,0 +1,13 @@
+{
+  "name": "sshmon-test",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "chai": "^4.1.2"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  }
+}

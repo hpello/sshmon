@@ -2,7 +2,7 @@ import { find } from 'lodash'
 import { join } from 'path'
 import { dir } from 'tmp'
 
-import { createLogger } from '../utils/log'
+import { createLogger } from '../log'
 
 const log = createLogger(__filename)
 

@@ -1,7 +1,7 @@
 import { spawn } from 'child_process'
 
 import { ForwardingParams, fwdTypes } from './types'
-import { createLogger } from '../utils/log'
+import { createLogger } from '../log'
 
 const log = createLogger(__filename)
 

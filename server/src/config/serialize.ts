@@ -3,7 +3,7 @@ import { promisify } from 'util'
 import { readFile, writeFile } from 'fs'
 
 import { configSchema, ConfigSchema } from './schema'
-import { createLogger } from '../utils/log'
+import { createLogger } from '../log'
 
 const log = createLogger(__filename)
 
@@ -24,7 +24,7 @@ export const load = async (path: string): Promise<ConfigSchema> => {
   const validation = configSchema.validate(object)
   if (validation.error) { throw validation.error }
 
-  return validation.value
+  return <ConfigSchema>validation.value
 }
 
 export const save = async (config: ConfigSchema, path: string): Promise<void> => {
