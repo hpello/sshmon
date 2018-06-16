@@ -44,7 +44,6 @@ export type Action =
   | ForwardingDeleteAction
   | ForwardingStateChangeAction
 
-
 export const actions = {
   forwardingCreate: (id: string, fwdId: string, config: ForwardingConfig): Action => ({ type: types.FORWARDING_CREATE, id, fwdId, config }),
   forwardingEdit: (id: string, fwdId: string, config: ForwardingConfig): Action => ({ type: types.FORWARDING_EDIT, id, fwdId, config }),
