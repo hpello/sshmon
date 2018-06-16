@@ -18,7 +18,7 @@ export default class HostCreate extends React.Component<Props, ComponentState> {
   render() {
     return (<>
       <div className="buttons is-right">
-        <div className="button is-primary" onClick={() => this.setState({ ...this.state, editIsActive: true })}>New host&hellip;</div>
+        <div className="button is-primary" onClick={() => this.setState({ ...this.state, editIsActive: true })}>Add host</div>
       </div>
 
       {!this.state.editIsActive ? null : (

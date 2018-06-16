@@ -27,7 +27,7 @@ export default class ForwardingCreate extends React.Component<Props, ComponentSt
           </div>
         </div>
         <div className="column is-narrow">
-          New forwarding&hellip;
+          Add forwarding
         </div>
       </div>
 
