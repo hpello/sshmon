@@ -29,8 +29,8 @@ const APIDisconnectedModal = (props: { active: boolean }) => (
           <p>API unreachable</p>
         </div>
         <div className="message-body has-text-centered">
-          <p><span className="has-text-weight-semibold">sshmon</span> API appears to be down</p>
-          <p>Please wait for reconnection...</p>
+          <p>The SSHMon API appears to be down</p>
+          <p>Please wait for reconnection&hellip;</p>
         </div>
       </article>
     </div>

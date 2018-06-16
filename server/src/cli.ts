@@ -9,7 +9,7 @@ const argv = yargs
   .options({
     c: {
       alias: 'config-file',
-      describe: 'Path to sshmon config file',
+      describe: 'Path to SSHMon config file',
       type: 'string'
     }
   })

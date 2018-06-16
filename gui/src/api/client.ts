@@ -27,7 +27,7 @@ const setup = (socket: SocketIOClient.Socket, store: Store) => {
 
     // FIXME hpello
     if (state.system.info) {
-      document.title = `${state.system.info.hostName} | sshmon`
+      document.title = `${state.system.info.hostName} | SSHMon`
     }
   })
 }

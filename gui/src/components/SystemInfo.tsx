@@ -84,7 +84,7 @@ class SystemInfo extends React.Component<Props> {
               <tr>
                 <th style={{ border: 'none' }}>Version</th>
                 <td className="has-text-right" style={{ border: 'none' }}>
-                  {info ? <><span className="has-text-weight-semibold">sshmon</span> {info.version}{largesp}|{largesp}Node.js {info.nodeVersion}</> : ''}
+                  {info ? <>SSHMon {info.version}{largesp}|{largesp}Node.js {info.nodeVersion}</> : ''}
                 </td>
               </tr>
               <tr>

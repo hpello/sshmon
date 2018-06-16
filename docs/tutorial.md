@@ -1,6 +1,6 @@
 # Tutorial
 
-This tutorial will guide you in the setup of your first host with SSHmon!
+This tutorial will guide you in the setup of your first host with SSHMon!
 
 ## Knowing your SSH connection
 
@@ -17,7 +17,7 @@ Then your SSH command line looks something like:
 ssh -i /path/to/key -p 8022 ubuntu@host.example.com
 ```
 
-*Info:* SSHmon does not support other authentication types than private key.
+*Info:* SSHMon does not support other authentication types than private key.
 
 ### The SSH config
 
@@ -42,11 +42,11 @@ ssh my-host
 # ssh -o Port=8022 -o User=ubuntu -o Identityfile=/path/to/key host.example.com
 ```
 
-## Add your host to SSHmon
+## Add your host to SSHMon
 
-If you have declared a host in your SSH config like in the previous section, then your SSHmon setup is straightforward: in the SSHmon GUI, add a new Host with ID `my-host`.
+If you have declared a host in your SSH config like in the previous section, then your SSHMon setup is straightforward: in the SSHMon GUI, add a new Host with ID `my-host`.
 
-If you did not declare it in your SSH config: in the SSHmon GUI, add a new host with ID `my-host`, and set its SSH host to `host.example.com` and config to:
+If you did not declare it in your SSH config: in the SSHMon GUI, add a new host with ID `my-host`, and set its SSH host to `host.example.com` and config to:
 
 - `Port`: `8022`
 - `User`: `ubuntu`
@@ -114,9 +114,9 @@ curl --unix-socket /var/tmp/server.sock http://server/hi
 # => hello
 ```
 
-### With SSHmon
+### With SSHMon
 
-SSHmon facilitates the setup of your port forwardings, and saves them for later use. To set up a local forwarding like on our previous example, click on your new host on the GUI, then add a new forwarding:
+SSHMon facilitates the setup of your port forwardings, and saves them for later use. To set up a local forwarding like on our previous example, click on your new host on the GUI, then add a new forwarding:
 
 - Type: Local
 - Bind: `localhost:1234` (or just `1234`, see below)
@@ -126,4 +126,4 @@ And you are all set!
 
 *Tip:* If you left the SSH config `GatewayPorts` option to its default value (`no`), SSH will use the loopback address as the bind address in your forwardings (see `man ssh_config` for more info). As a result, you may omit the host part in `localhost:1234`, and only set `1234`.
 
-*Tip:* For local and remote forwarding, the target address is required by SSH. However, if you leave it empty in SSHmon, it defaults to `localhost`.
+*Tip:* For local and remote forwarding, the target address is required by SSH. However, if you leave it empty in SSHMon, it defaults to `localhost`.

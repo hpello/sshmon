@@ -1,18 +1,18 @@
-# SSHmon
+# SSHMon
 
-SSHmon is a program designed to manage and monitor ssh connections.
+SSHMon is a program designed to manage and monitor ssh connections.
 It has been tested on Linux and OSX with SSH &geq; 6.7.
 
 ![gui-sample.png](https://s7.postimg.cc/elzqf92gp/gui-sample.png)
 
 ## How it works
 
-SSHmon builds on top of the SSH "Control Master" feature, that facilitates port forwarding setup.
+SSHMon builds on top of the SSH "Control Master" feature, that facilitates port forwarding setup.
 
 ## Disclaimer
 
-- SSHmon Features (e.g. SSH host definition and connection) are exposed through the GUI. As a consequence, extreme care should be taken to make sure it is only reachable by you. Use at your own risk.
-- SSHmon is still at an early stage of development, as a result some things might not work and we might introduce some breaking changes... Any feedback will be greatly appreciated!
+- SSHMon Features (e.g. SSH host definition and connection) are exposed through the GUI. As a consequence, extreme care should be taken to make sure it is only reachable by you. Use at your own risk.
+- SSHMon is still at an early stage of development, as a result some things might not work and we might introduce some breaking changes... Any feedback will be greatly appreciated!
 
 ## Features
 
@@ -24,13 +24,13 @@ SSHmon builds on top of the SSH "Control Master" feature, that facilitates port 
 
 ## Get started
 
-Get the [latest release](https://github.com/hpello/sshmon/releases/latest) of SSHmon for your system, and run it:
+Download the [latest release](https://github.com/hpello/sshmon/releases/latest) of SSHMon for your system and unpack it. Run the `sshmon` binary:
 
 ```bash
 ./sshmon
 ```
 
-Then you can access the GUI at <http://localhost:8377>.
+Then you can access the web GUI at <http://localhost:8377>.
 
 Go and have a look at the [Tutorial](docs/tutorial.md) to set up your first host!
 
@@ -46,14 +46,14 @@ node server/build/cli.js
 
 You can set up SSH connections through the GUI or with a configuration file.
 
-By default, SSHmon will create a config file located at `~/.sshmon/config.yml`.
+By default, SSHMon will create a config file located at `~/.sshmon/config.yml`.
 You also may specify your own configuration file on the command line.
 
 Head over to the [Configuration](docs/configuration.md) page for more details.
 
 ## Logging
 
-Logging is handled by the [bunyan](https://github.com/trentm/node-bunyan) library. A `bunyan` process is launched along with SSHmon and writes logs to stderr.
+Logging is handled by the [bunyan](https://github.com/trentm/node-bunyan) library. A `bunyan` process is launched along with SSHMon and writes logs to stderr.
 
 By default, if stderr is a TTY, the logs are pretty-printed, else they are written in a JSON format.
 You may use the `BUNYAN_OPTS` environment variable to choose which args are passed to the `bunyan` process, e.g.:
@@ -65,11 +65,11 @@ BUNYAN_OPTS='-l debug' ./sshmon
 ## Troubleshooting
 
 - So far, only public/private key authentication is supported.
-- Before trying to connect to a host through SSHmon, make sure you can connect to it with SSH on the command line.
+- Before trying to connect to a host through SSHMon, make sure you can connect to it with SSH on the command line.
 
 ## Built with
 
-SSHmon was developped thanks to the following projects (this list is not exhaustive!):
+SSHMon was developped thanks to the following projects (this list is not exhaustive!):
 
 - [Typescript](https://www.typescriptlang.org/)
 - [TSLint](https://palantir.github.io/tslint/)
