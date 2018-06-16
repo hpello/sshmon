@@ -3,6 +3,10 @@
 @import "../node_modules/font-awesome/scss/font-awesome";
 
 @import "../node_modules/bulmaswatch/darkly/_variables";
+
+// some fonts (e.g. Monaco) do not have the same size as the other monospace fonts
+$family-monospace: monospace;
+
 @import "../node_modules/bulma/bulma";
 @import "../node_modules/bulmaswatch/darkly/_overrides";
 
