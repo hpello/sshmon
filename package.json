@@ -4,6 +4,7 @@
   "scripts": {
     "build": "(cd server && npm run build) && (cd gui && npm run build)",
     "build-watch": "(cd server && npm run build-watch) & (cd gui && npm run build-watch)",
+    "lint": "tslint --project .",
     "clean": "(cd server && npm run clean) && (cd gui && npm run clean)",
     "tsc": "tsc --outDir /tmp/none",
     "tsc-watch": "npm run tsc -- --watch",
