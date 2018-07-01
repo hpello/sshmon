@@ -8,7 +8,7 @@
     "clean": "(cd server && npm run clean) && (cd gui && npm run clean)",
     "tsc": "tsc --outDir /tmp/none",
     "tsc-watch": "npm run tsc -- --watch",
-    "install-all": "npm install & (cd server && npm install) && (cd gui && npm install)",
+    "install-all": "npm install && (cd server && npm install) && (cd gui && npm install)",
     "pkg": "mkdir -p build && pkg . -o build/sshmon",
     "pkg-clean": "! test -e build || rm -r build",
     "deploy": "npm run pkg-clean && npm run clean && npm run build && npm run pkg"
