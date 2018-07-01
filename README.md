@@ -62,6 +62,16 @@ You may use the `BUNYAN_OPTS` environment variable to choose which args are pass
 BUNYAN_OPTS='-l debug' ./sshmon
 ```
 
+## Test
+
+Docker and docker-compose are required.
+
+You may run the test suite with:
+
+```bash
+(cd test && make test)
+```
+
 ## Troubleshooting
 
 - So far, only public/private key authentication is supported.
@@ -87,3 +97,4 @@ SSHMon was developped thanks to the following projects (this list is not exhaust
 - Offer multiple GUI themes
 - Allow custom global SSH config options
 - Use BatchMode for `ProxyJump` SSH hosts
+- Run on Windows
