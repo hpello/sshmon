@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.1
+
+- License: Add MIT license
+- Global: Upgrade dependencies
+- Test: Add linter
+- Gui: Rename SSHmon to SSHMon and set monospace font
+
 ## 0.4.0
 
 - Test: Add some tests
