@@ -19,30 +19,30 @@
     "lint": "../node_modules/.bin/tslint -p ."
   },
   "dependencies": {
-    "bulma": "^0.6.2",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-redux": "^5.0.6",
+    "bulma": "^0.7.1",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-redux": "^5.0.7",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
-    "socket.io-client": "^2.0.4"
+    "socket.io-client": "^2.1.1"
   },
   "devDependencies": {
-    "@types/react": "^16.0.36",
-    "@types/react-dom": "^16.0.3",
-    "@types/react-redux": "^5.0.14",
-    "@types/redux-logger": "^3.0.5",
+    "@types/react": "^16.3.17",
+    "@types/react-dom": "^16.0.6",
+    "@types/react-redux": "^5.0.20",
+    "@types/redux-logger": "^3.0.6",
     "@types/socket.io-client": "^1.4.32",
-    "autoprefixer": "^7.2.3",
-    "browserify": "^14.5.0",
+    "autoprefixer": "^8.6.2",
+    "browserify": "^16.2.2",
     "bulmaswatch": "^0.6.2",
     "chokidar-cli": "^1.2.0",
     "font-awesome": "^4.7.0",
-    "node-sass": "^4.7.2",
-    "postcss-cli": "^4.1.1",
-    "tsify": "^3.0.4",
-    "typescript": "^2.7.1",
-    "uglify-es": "^3.3.5",
-    "watchify": "^3.9.0"
+    "node-sass": "^4.9.0",
+    "postcss-cli": "^5.0.0",
+    "tsify": "^4.0.0",
+    "typescript": "^2.9.1",
+    "uglify-es": "^3.3.9",
+    "watchify": "^3.11.0"
   }
 }

@@ -25,7 +25,6 @@ const defaultSubState = (): AutoforwardSubState => ({
   timeout: 0
 })
 
-
 export const reducer = (state: State = initialState(), action: Action): State => {
   switch (action.type) {
   case types.AUTOFORWARD_CREATE: {

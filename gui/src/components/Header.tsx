@@ -9,7 +9,7 @@ const Header = (props: Props) => (
     <div className="hero-body">
       <div className="container">
         <h1 className="title">
-          sshmon
+          SSHMon
         </h1>
         <h2 className="subtitle">
           {props.subtitle}

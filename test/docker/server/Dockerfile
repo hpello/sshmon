@@ -10,7 +10,6 @@ COPY ssh/authorized_keys /root/.ssh/
 RUN apk add --update --no-cache busybox busybox-extras # httpd
 RUN echo 'Hello from server' > hello
 
-CMD sh -c '\
-  httpd && \
-  /usr/sbin/sshd -D -h /root/.ssh/id_rsa \
-'
+RUN (echo 'trap "exit 143" SIGTERM' \
+  && echo '(httpd && /usr/sbin/sshd -D -h /root/.ssh/id_rsa) & wait') > /run.sh
+CMD ["sh", "/run.sh"]

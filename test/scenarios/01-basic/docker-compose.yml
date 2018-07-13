@@ -7,6 +7,7 @@ services:
       dockerfile: test/docker/client/Dockerfile
     environment:
       BUNYAN_OPTS: -l debug
+    command: /opt/sshmon/build/sshmon
     volumes:
       - ./config.yml:/root/.sshmon/config.yml:ro
       - ./test.js:/opt/test/test.js:ro

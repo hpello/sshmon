@@ -4,18 +4,19 @@
   "scripts": {
     "build": "(cd server && npm run build) && (cd gui && npm run build)",
     "build-watch": "(cd server && npm run build-watch) & (cd gui && npm run build-watch)",
+    "lint": "tslint --project .",
     "clean": "(cd server && npm run clean) && (cd gui && npm run clean)",
     "tsc": "tsc --outDir /tmp/none",
     "tsc-watch": "npm run tsc -- --watch",
-    "install-all": "npm install & (cd server && npm install) && (cd gui && npm install)",
+    "install-all": "npm install && (cd server && npm install) && (cd gui && npm install)",
     "pkg": "mkdir -p build && pkg . -o build/sshmon",
     "pkg-clean": "! test -e build || rm -r build",
     "deploy": "npm run pkg-clean && npm run clean && npm run build && npm run pkg"
   },
   "devDependencies": {
-    "tslint": "^5.9.1",
-    "tslint-config-airbnb": "^5.6.0",
-    "typescript": "^2.7.1"
+    "tslint": "^5.10.0",
+    "tslint-config-airbnb": "^5.9.2",
+    "typescript": "^2.9.1"
   },
   "bin": "server/build/cli.js",
   "pkg": {

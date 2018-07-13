@@ -16,28 +16,19 @@ export interface EngineOptions {
 }
 
 export class Engine {
-  system: System
-  forwarder: Forwarder
-  autoconnector: Autoconnector
-  autoforwarder: Autoforwarder
-  config: Config
-  api: API
+  system = new System({ store })
+  forwarder = new Forwarder({ store })
+  autoconnector = new Autoconnector({ store })
+  autoforwarder = new Autoforwarder({ store })
+  config = new Config({ store })
+  api = new API({ store })
 
-  constructor(options: EngineOptions) {
-    this.system = new System({ store })
-    this.forwarder = new Forwarder({ store })
-    this.autoconnector = new Autoconnector({ store })
-    this.autoforwarder = new Autoforwarder({ store })
-    this.config = new Config({ store, configPath: options.configFile || null })
-    this.api = new API({ store })
-  }
-
-  async start() {
+  async start(options: EngineOptions) {
     this.system.setup()
     this.forwarder.setup()
     this.autoconnector.setup()
     this.autoforwarder.setup()
-    await this.config.setup()
+    await this.config.setup({ configPath: options.configFile || null })
 
     this.api.setup()
     this.api.listen(8377, 'localhost')
@@ -53,7 +44,7 @@ export class Engine {
 }
 
 export const start = (options: EngineOptions) => {
-  const engine = new Engine(options)
-  engine.start()
+  const engine = new Engine()
+  engine.start(options)
   setupGracefulShutdown(() => engine.stop())
 }

@@ -19,11 +19,15 @@ COPY tsconfig.json tslint.yml ./
 COPY server/ server/
 COPY gui/ gui/
 
-RUN npm run deploy && mv build/sshmon /
+RUN npm run deploy
 
 # test
 WORKDIR /opt/test
 COPY test/docker/client/package.json test/docker/client/package-lock.json ./
 RUN npm install
 
-CMD /sshmon
+RUN apk add --update --no-cache bash
+
+RUN (echo 'trap "exit 143" SIGTERM' \
+  && echo 'sleep 1d & wait') > /sleep.sh
+CMD ["sh", "/sleep.sh"]

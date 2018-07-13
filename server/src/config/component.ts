@@ -99,17 +99,15 @@ export class Config {
   prevState: State
   configPath: string
 
-  constructor(params: { store: Store, configPath: string | null }) {
-    const { store, configPath } = params
+  constructor(params: { store: Store }) {
+    const { store } = params
     this.store = store
     this.prevState = params.store.getState()
-    this.configPath = configPath === null ? '' : configPath
+    this.configPath = ''
   }
 
-  async setup() {
-    if (this.configPath === '') {
-      this.configPath = await ensureDefaultConfigFile()
-    }
+  async setup(params: { configPath: string | null }) {
+    this.configPath = params.configPath !== null ? params.configPath : await ensureDefaultConfigFile()
 
     log.info('config file is', this.configPath)
     const config = await load(this.configPath)
