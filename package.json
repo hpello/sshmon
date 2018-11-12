@@ -11,7 +11,8 @@
     "install-all": "npm install && (cd server && npm install) && (cd gui && npm install)",
     "pkg": "mkdir -p build && pkg . -o build/sshmon",
     "pkg-clean": "! test -e build || rm -r build",
-    "deploy": "npm run pkg-clean && npm run clean && npm run build && npm run pkg"
+    "deploy": "npm run pkg-clean && npm run clean && npm run build && npm run pkg",
+    "test": "(cd test && make test) && npm run lint"
   },
   "devDependencies": {
     "tslint": "^5.10.0",
