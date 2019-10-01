@@ -15,7 +15,7 @@
     "joi": "^13.4.0",
     "js-yaml": "^3.12.0",
     "json-stable-stringify": "^1.0.1",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.13",
     "redux": "^3.7.2",
     "redux-thunk": "2.2.0",
     "restify": "^7.2.1",
