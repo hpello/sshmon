@@ -11,7 +11,7 @@
   "dependencies": {
     "bunyan": "^1.8.12",
     "chokidar": "^2.0.3",
-    "http-proxy": "^1.17.0",
+    "http-proxy": "^1.18.1",
     "joi": "^13.4.0",
     "js-yaml": "^3.12.0",
     "json-stable-stringify": "^1.0.1",
