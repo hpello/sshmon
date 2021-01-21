@@ -19,7 +19,7 @@
     "redux": "^3.7.2",
     "redux-thunk": "2.2.0",
     "restify": "^7.2.1",
-    "socket.io": "^2.1.1",
+    "socket.io": "^2.4.0",
     "tmp": "0.0.33",
     "yargs": "^11.1.0"
   },
