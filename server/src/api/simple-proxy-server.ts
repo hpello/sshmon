@@ -76,8 +76,8 @@ export class SimpleProxyServer {
   }
 
   addTarget(pathPrefix: string, target: ProxyTarget) {
-    // @ts-ignore: we use the undocumented 'socketPath' parameter
     const proxyServer = HTTPProxy.createProxyServer({
+      // @ts-expect-error: we use the undocumented 'socketPath' parameter
       target,
       xfwd: true
     })

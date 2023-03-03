@@ -1,3 +1,4 @@
+import { Server } from 'http'
 import { Socket } from 'net'
 
 import { PROXY_PATH_PREFIX } from './constants'
@@ -29,7 +30,7 @@ export class GatewayServer {
     this.server.removeTarget(fullPrefix)
   }
 
-  listen(...args: any[]) {
+  listen(...args: Parameters<Server['listen']>) {
     this.server.server.listen(...args)
 
     // keep track of connected sockets for shutdown

@@ -1,3 +1,5 @@
+import { Socket } from 'socket.io'
+
 import { socketTypes } from './constants'
 import { State } from '../types/redux'
 import { createLogger } from '../log'
@@ -6,13 +8,13 @@ const log = createLogger(__filename)
 
 export class SocketNotify {
   state: State | null
-  sockets: Set<SocketIO.Socket> = new Set()
+  sockets: Set<Socket> = new Set()
 
   constructor(state: State) {
     this.state = state
   }
 
-  register(socket: SocketIO.Socket) {
+  register(socket: Socket) {
     if (!this.sockets.has(socket)) { log.debug('register socket %s', socket.id) }
     this.sockets.add(socket)
     if (this.state !== null) {
@@ -20,7 +22,7 @@ export class SocketNotify {
     }
   }
 
-  unregister(socket: SocketIO.Socket) {
+  unregister(socket: Socket) {
     if (this.sockets.has(socket)) { log.debug('unregister socket %s', socket.id) }
     this.sockets.delete(socket)
   }

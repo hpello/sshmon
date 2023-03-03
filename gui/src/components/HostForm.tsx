@@ -98,8 +98,8 @@ class HostForm extends React.Component<Props, ComponentState> {
 
   onChangeId(event: React.ChangeEvent<{ value: string }>) { this.setState({ ...this.state, id: event.target.value }) }
   onChangeLabel(event: React.ChangeEvent<{ value: string }>) { this.setState({ ...this.state, label: event.target.value }) }
-  onChangeAutostart(event: React.ChangeEvent<{ value: 'on' | 'off' }>) { this.setState({ ...this.state, autostart: event.target.value === 'on' }) }
-  onChangeAutoretry(event: React.ChangeEvent<{ value: 'on' | 'off' }>) { this.setState({ ...this.state, autoretry: event.target.value === 'on' }) }
+  onChangeAutostart(event: React.ChangeEvent<{ value: string }>) { this.setState({ ...this.state, autostart: event.target.value === 'on' }) }
+  onChangeAutoretry(event: React.ChangeEvent<{ value: string }>) { this.setState({ ...this.state, autoretry: event.target.value === 'on' }) }
   onChangeSSHHost(event: React.ChangeEvent<{ value: string }>) { this.setState({ ...this.state, sshHost: event.target.value }) }
   onChangeSSHConfigKey(index: number, event: React.ChangeEvent<{ value: string }>) {
     const sshConfig = [...this.state.sshConfig, { key: '', value: '' }].map((x, i) => i === index

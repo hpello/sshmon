@@ -11,7 +11,7 @@ export const disconnectAllHosts = async (store: Store) => {
       .reduce((acc, hostIsDown) => acc && hostIsDown, true)
   }
 
-  return new Promise((resolve) => {
+  return new Promise<void>((resolve) => {
     let done = false
     const listener = () => {
       if (!done && allDisconnected()) {

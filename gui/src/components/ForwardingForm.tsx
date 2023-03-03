@@ -134,9 +134,9 @@ class ForwardingForm extends React.Component<Props, ComponentState> {
 
   onChangeFwdId(event: React.ChangeEvent<{ value: string }>) { this.setState({ ...this.state, fwdId: event.target.value }) }
   onChangeLabel(event: React.ChangeEvent<{ value: string }>) { this.setState({ ...this.state, label: event.target.value }) }
-  onChangeAutostart(event: React.ChangeEvent<{ value: 'on' | 'off' }>) { this.setState({ ...this.state, autostart: event.target.value === 'on' }) }
-  onChangeAutoretry(event: React.ChangeEvent<{ value: 'on' | 'off' }>) { this.setState({ ...this.state, autoretry: event.target.value === 'on' }) }
-  onChangeType(event: React.ChangeEvent<{ value: fwdTypes }>) { this.setState({ ...this.state, type: event.target.value, bind: '', target: '' }) }
+  onChangeAutostart(event: React.ChangeEvent<{ value: string }>) { this.setState({ ...this.state, autostart: event.target.value === 'on' }) }
+  onChangeAutoretry(event: React.ChangeEvent<{ value: string }>) { this.setState({ ...this.state, autoretry: event.target.value === 'on' }) }
+  onChangeType(event: React.ChangeEvent<{ value: string }>) { this.setState({ ...this.state, type: event.target.value as fwdTypes, bind: '', target: '' }) }
   onChangeBind(event: React.ChangeEvent<{ value: string }>) { this.setState({ ...this.state, bind: event.target.value }) }
   onChangeTarget(event: React.ChangeEvent<{ value: string }>) { this.setState({ ...this.state, target: event.target.value }) }
 

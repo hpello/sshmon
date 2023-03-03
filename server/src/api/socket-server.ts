@@ -1,4 +1,4 @@
-import * as SocketIOServer from 'socket.io'
+import { Server } from 'socket.io'
 
 import { SOCKET_PATH, socketTypes } from './constants'
 import { setupSocket } from './socket-setup'
@@ -9,13 +9,13 @@ import { createLogger } from '../log'
 const log = createLogger(__filename)
 
 export const createIO = (store: Store, socketNotify: SocketNotify) => {
-  const io = SocketIOServer({
+  const io = new Server({
     path: SOCKET_PATH,
     serveClient: false
   })
 
   io.on('connection', (socket) => {
-    const xfwdfor = socket.handshake.headers['x-forwarded-for']
+    const xfwdfor = socket.handshake.headers['x-forwarded-for'] as string
     const address = xfwdfor
       ? xfwdfor.split(',')[0]
       : socket.handshake.address

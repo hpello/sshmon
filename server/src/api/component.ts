@@ -55,11 +55,13 @@ export class API {
 
   async listen(...args: any[]) {
     const apiSocketPath = await makeTmpPath(__filename)('api-server')
-    await promisify(this.apiServer.listen).call(this.apiServer, apiSocketPath)
+    const apiListen = promisify(this.apiServer.listen.bind(this.apiServer, apiSocketPath))
+    await apiListen()
     log.debug('api socket listening at %s', formatURL(this.apiServer))
 
     this.gatewayServer.setDefaultTarget({ socketPath: apiSocketPath })
-    await promisify(this.gatewayServer.listen).call(this.gatewayServer, ...args)
+    const gatewayListen = promisify(this.gatewayServer.listen.bind(this.gatewayServer, ...args))
+    await gatewayListen()
     log.info('api listening at %s', formatURL(this.gatewayServer.server.server))
   }
 }
