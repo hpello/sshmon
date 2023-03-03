@@ -37,8 +37,8 @@ Go and have a look at the [Tutorial](docs/tutorial.md) to set up your first host
 ### Build from source
 
 ```bash
-npm run install-all
-npm run build
+yarn install-all
+yarn build
 node server/build/cli.js
 ```
 

@@ -1,5 +1,7 @@
 {
   "name": "sshmon-test",
+  "version": "",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
     "chai": "^4.1.2"

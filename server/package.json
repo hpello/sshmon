@@ -1,9 +1,10 @@
 {
   "name": "sshmon-server",
   "version": "",
+  "license": "MIT",
   "scripts": {
     "build": "tsc --outDir build",
-    "build-watch": "npm run build -- --watch | ruby -ne 'puts $_.gsub(/\\x1Bc/, \"\")'",
+    "build-watch": "yarn build -- --watch | ruby -ne 'puts $_.gsub(/\\x1Bc/, \"\")'",
     "clean": "! test -e build || rm -r build",
     "lint": "../node_modules/.bin/tslint -p .",
     "start": "node build/cli.js"
