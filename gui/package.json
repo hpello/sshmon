@@ -38,7 +38,7 @@
     "bulmaswatch": "^0.6.2",
     "chokidar-cli": "^1.2.0",
     "font-awesome": "^4.7.0",
-    "node-sass": "^4.9.0",
+    "node-sass": "^8.0.0",
     "postcss-cli": "^5.0.0",
     "tsify": "^4.0.0",
     "typescript": "^2.9.1",
