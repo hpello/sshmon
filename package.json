@@ -29,6 +29,6 @@
     ]
   },
   "dependencies": {
-    "pkg": "^4.3.1"
+    "pkg": "https://github.com/vercel/pkg#e3ac4902e9cb023f0ac2a596e21ff9166d2e268c"
   }
 }

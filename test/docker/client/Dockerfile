@@ -2,6 +2,7 @@ FROM node:18.14.2-alpine
 
 # dependencies
 RUN apk add --update --no-cache openssh
+RUN apk add --update --no-cache git # install specific version of npm module
 
 COPY test/docker/client/ssh/id_rsa /root/.ssh/
 RUN chmod 600 /root/.ssh/id_rsa
