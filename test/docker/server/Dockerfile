@@ -5,6 +5,9 @@ RUN apk add --update --no-cache openssh
 COPY ssh/id_rsa /root/.ssh/
 RUN chmod 600 /root/.ssh/id_rsa
 COPY ssh/authorized_keys /root/.ssh/
+# unlock account for ssh connection to prevent
+# 'User root not allowed because account is locked'
+RUN sed -i s/root:!/root:*/g /etc/shadow
 
 # http server
 RUN apk add --update --no-cache busybox busybox-extras # httpd
