@@ -1,7 +1,8 @@
-FROM node:9.2.0-alpine
+FROM node:18.14.2-alpine
 
 # dependencies
 RUN apk add --update --no-cache openssh
+RUN apk add --update --no-cache git # install specific version of npm module
 
 COPY test/docker/client/ssh/id_rsa /root/.ssh/
 RUN chmod 600 /root/.ssh/id_rsa
@@ -10,21 +11,21 @@ COPY test/docker/client/ssh/known_hosts /root/.ssh/
 # sshmon
 WORKDIR /opt/sshmon
 
-COPY package.json package-lock.json ./
-COPY gui/package.json gui/package-lock.json gui/
-COPY server/package.json server/package-lock.json server/
-RUN npm run install-all
+COPY package.json yarn.lock ./
+COPY gui/package.json gui/yarn.lock gui/
+COPY server/package.json server/yarn.lock server/
+RUN yarn
 
 COPY tsconfig.json tslint.yml ./
 COPY server/ server/
 COPY gui/ gui/
 
-RUN npm run deploy
+RUN yarn deploy
 
 # test
 WORKDIR /opt/test
-COPY test/docker/client/package.json test/docker/client/package-lock.json ./
-RUN npm install
+COPY test/docker/client/package.json test/docker/client/yarn.lock ./
+RUN yarn
 
 RUN apk add --update --no-cache bash
 

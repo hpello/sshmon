@@ -100,7 +100,9 @@ const makeForwardingObject = (forwarding: ForwardingConfig, autoforward: Autofor
 
 const makeSSHObject = (id: string, host: HostConfig) => {
   const ssh = { ...(host.ssh) }
+  // @ts-expect-error The operand of a 'delete' operator must be optional.
   if (ssh.host === id) { delete ssh.host }
+  // @ts-expect-error The operand of a 'delete' operator must be optional.
   if (Object.keys(ssh.config).length === 0) { delete ssh.config }
 
   return ssh
@@ -130,6 +132,7 @@ const makeHostObject = (id: string, host: HostConfig, forwardings: { id: string,
 const makeConfigObject = (config: ConfigConfig): ConfigConfigSchema => {
   const result = { ...config }
   if (!result.autosave) {
+    // @ts-expect-error The operand of a 'delete' operator must be optional.
     delete result.autosave
   }
   return config
@@ -151,7 +154,9 @@ export const configStateToObject = (config: ConfigType): ConfigSchema => {
     config: c
   }
 
+  // @ts-expect-error The operand of a 'delete' operator must be optional.
   if (Object.keys(result.config).length === 0) { delete result.config }
+  // @ts-expect-error The operand of a 'delete' operator must be optional.
   if (Object.keys(result.hosts).length === 0) { delete result.hosts }
 
   return result

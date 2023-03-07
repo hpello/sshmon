@@ -1,40 +1,40 @@
-import { any, alternatives, array, boolean, object, string } from 'joi'
+import * as Joi from 'joi'
 
-const replaceIfNull = (schema: any, defoult: any) => alternatives().try(
+const replaceIfNull = (schema: any, defoult: any) => Joi.alternatives().try(
   schema,
-  any().valid(null).empty(null).default(defoult)
+  Joi.any().valid(null).empty(null).default(defoult)
 )
 
-const forwardingObject = object({
-  spec: string().required(),
-  label: string(),
-  autostart: boolean(),
-  autoretry: boolean()
+const forwardingObject = Joi.object({
+  spec: Joi.string().required(),
+  label: Joi.string(),
+  autostart: Joi.boolean(),
+  autoretry: Joi.boolean()
 })
 
-const forwarding = alternatives().try(
+const forwarding = Joi.alternatives().try(
   forwardingObject,
-  string()
+  Joi.string()
 )
 
-const host = object({
-  ssh: object({
-    host: string(),
-    config: object().pattern(/.*/, string())
+const host = Joi.object({
+  ssh: Joi.object({
+    host: Joi.string(),
+    config: Joi.object().pattern(/.*/, Joi.string())
   }),
-  forward: array().items(object().pattern(/.*/, forwarding).length(1))
+  forward: Joi.array().items(Joi.object().pattern(/.*/, forwarding).length(1))
     .unique((a, b) => Object.keys(a)[0] === Object.keys(b)[0]),
-  label: string(),
-  autostart: boolean(),
-  autoretry: boolean()
+  label: Joi.string(),
+  autostart: Joi.boolean(),
+  autoretry: Joi.boolean()
 })
 
-const config = object({
-  autosave: boolean()
+const config = Joi.object({
+  autosave: Joi.boolean()
 })
 
-export const configSchema = object({
-  hosts: array().items(object().pattern(/.*/, replaceIfNull(host, {})).length(1))
+export const configSchema = Joi.object({
+  hosts: Joi.array().items(Joi.object().pattern(/.*/, replaceIfNull(host, {})).length(1))
     .unique((a, b) => Object.keys(a)[0] === Object.keys(b)[0]),
   config
 }).default(null) // INFO hpello empty yaml file yields undefined

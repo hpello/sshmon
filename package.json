@@ -1,22 +1,24 @@
 {
   "name": "sshmon",
   "version": "0.4.1",
+  "license": "MIT",
   "scripts": {
-    "build": "(cd server && npm run build) && (cd gui && npm run build)",
-    "build-watch": "(cd server && npm run build-watch) & (cd gui && npm run build-watch)",
+    "build": "yarn --cwd server build && yarn --cwd gui build",
+    "build-watch": "yarn --cwd server build-watch & yarn --cwd gui build-watch",
     "lint": "tslint --project .",
-    "clean": "(cd server && npm run clean) && (cd gui && npm run clean)",
+    "clean": "yarn --cwd server clean && yarn --cwd gui clean",
     "tsc": "tsc --outDir /tmp/none",
-    "tsc-watch": "npm run tsc -- --watch",
-    "install-all": "npm install && (cd server && npm install) && (cd gui && npm install)",
+    "tsc-watch": "yarn tsc --watch",
+    "postinstall": "yarn --cwd server && yarn --cwd gui",
     "pkg": "mkdir -p build && pkg . -o build/sshmon",
     "pkg-clean": "! test -e build || rm -r build",
-    "deploy": "npm run pkg-clean && npm run clean && npm run build && npm run pkg"
+    "deploy": "yarn pkg-clean && yarn clean && yarn build && yarn pkg",
+    "test": "(cd test && make test) && yarn lint"
   },
   "devDependencies": {
-    "tslint": "^5.10.0",
+    "tslint": "^6.1.3",
     "tslint-config-airbnb": "^5.9.2",
-    "typescript": "^2.9.1"
+    "typescript": "^4.9.5"
   },
   "bin": "server/build/cli.js",
   "pkg": {
@@ -27,6 +29,6 @@
     ]
   },
   "dependencies": {
-    "pkg": "^4.3.1"
+    "pkg": "https://github.com/vercel/pkg#e3ac4902e9cb023f0ac2a596e21ff9166d2e268c"
   }
 }

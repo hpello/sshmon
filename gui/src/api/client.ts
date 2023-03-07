@@ -1,4 +1,4 @@
-import * as io from 'socket.io-client'
+import { io, Socket } from 'socket.io-client'
 
 import { actions } from './actions'
 import { APIEndpoint, apiKeys } from '../../../server/src/api/api'
@@ -10,7 +10,7 @@ import { ForwardingConfig } from '../../../server/src/forward/types'
 import { State as APIState } from '../../../server/src/types/redux'
 import { Store } from '../types/redux'
 
-const setup = (socket: SocketIOClient.Socket, store: Store) => {
+const setup = (socket: Socket, store: Store) => {
   socket.on('connect', () => {
     console.log('connected to socket server')
     store.dispatch(actions.apiStatusConnected())
@@ -34,7 +34,7 @@ const setup = (socket: SocketIOClient.Socket, store: Store) => {
 
 export class APIClient {
   store: Store
-  socket: SocketIOClient.Socket
+  socket: Socket
 
   constructor(store: Store) {
     this.store = store

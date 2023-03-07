@@ -38,6 +38,7 @@ export const hostConnect = (id: string, reason: string): AsyncThunkAction => asy
   }
 
   const process = spawnSshMaster({ sshCommand: 'ssh', controlPath, sshParams: host.config.ssh })
+  // @ts-expect-error Argument of type 'number | undefined' is not assignable to parameter of type 'number'.
   dispatch(actions.hostStateConnecting(id, process.pid, controlPath, reason))
 
   const watcher = watch(controlPath, { useFsEvents: false })

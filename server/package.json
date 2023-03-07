@@ -1,39 +1,39 @@
 {
   "name": "sshmon-server",
   "version": "",
+  "license": "MIT",
   "scripts": {
     "build": "tsc --outDir build",
-    "build-watch": "npm run build -- --watch | ruby -ne 'puts $_.gsub(/\\x1Bc/, \"\")'",
+    "build-watch": "yarn build --watch | ruby -ne 'puts $_.gsub(/\\x1Bc/, \"\")'",
     "clean": "! test -e build || rm -r build",
     "lint": "../node_modules/.bin/tslint -p .",
     "start": "node build/cli.js"
   },
   "dependencies": {
     "bunyan": "^1.8.12",
-    "chokidar": "^2.0.3",
+    "chokidar": "^3.5.3",
     "http-proxy": "^1.17.0",
-    "joi": "^13.4.0",
-    "js-yaml": "^3.12.0",
+    "joi": "^17.8.3",
+    "js-yaml": "^4.1.0",
     "json-stable-stringify": "^1.0.1",
-    "lodash": "^4.17.10",
-    "redux": "^3.7.2",
-    "redux-thunk": "2.2.0",
-    "restify": "^7.2.1",
-    "socket.io": "^2.1.1",
-    "tmp": "0.0.33",
-    "yargs": "^11.1.0"
+    "lodash": "^4.17.21",
+    "redux": "^4.2.1",
+    "redux-thunk": "2.4.2",
+    "restify": "^11.1.0",
+    "socket.io": "^4.6.1",
+    "tmp": "0.2.1",
+    "yargs": "^17.7.1"
   },
   "devDependencies": {
-    "@types/chokidar": "^1.7.5",
+    "@types/chokidar": "^2.1.3",
     "@types/http-proxy": "^1.16.2",
-    "@types/joi": "^13.0.8",
-    "@types/js-yaml": "^3.11.1",
+    "@types/js-yaml": "^4.0.5",
     "@types/json-stable-stringify": "^1.0.32",
-    "@types/lodash": "^4.14.109",
-    "@types/restify": "^7.2.0",
-    "@types/socket.io": "^1.4.34",
-    "@types/tmp": "0.0.33",
-    "@types/yargs": "^11.0.0",
-    "typescript": "^2.9.1"
+    "@types/lodash": "^4.14.191",
+    "@types/restify": "^8.5.6",
+    "@types/socket.io": "^3.0.2",
+    "@types/tmp": "0.2.3",
+    "@types/yargs": "^17.0.22",
+    "typescript": "^4.9.5"
   }
 }

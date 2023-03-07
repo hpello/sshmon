@@ -1,3 +1,5 @@
+import { Socket } from 'socket.io'
+
 import { thunks as autoconnectThunks } from '../autoconnect'
 import { thunks as autoforwardThunks } from '../autoforward'
 import { thunks as hostThunks } from '../host'
@@ -47,7 +49,7 @@ const makeActions = (e: APIEndpoint): AsyncThunkAction[] | null => {
   }
 }
 
-export const setupSocket = (socket: SocketIO.Socket, store: Store) => {
+export const setupSocket = (socket: Socket, store: Store) => {
   socket.on(socketTypes.apiCall, (e: APIEndpoint, callback: (err: SocketMessageError | null, result: any) => any) => {
     const actions = makeActions(e)
 
