@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.0
+
+- Global: Upgrade dependencies
+- Global: Migrate to yarn
+- Global: Uprade to node 18
+
 ## 0.4.1
 
 - License: Add MIT license

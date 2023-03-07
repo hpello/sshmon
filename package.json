@@ -1,6 +1,6 @@
 {
   "name": "sshmon",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "license": "MIT",
   "scripts": {
     "build": "yarn --cwd server build && yarn --cwd gui build",
