@@ -5,7 +5,7 @@
   "scripts": {
     "build": "yarn --cwd server build && yarn --cwd gui build",
     "build-watch": "yarn --cwd server build-watch & yarn --cwd gui build-watch",
-    "lint": "tslint --project .",
+    "lint": "eslint . && prettier --check .",
     "clean": "yarn --cwd server clean && yarn --cwd gui clean",
     "tsc": "tsc --outDir /tmp/none",
     "tsc-watch": "yarn tsc --watch",
@@ -16,8 +16,11 @@
     "test": "(cd test && make test) && yarn lint"
   },
   "devDependencies": {
-    "tslint": "^6.1.3",
-    "tslint-config-airbnb": "^5.9.2",
+    "@typescript-eslint/eslint-plugin": "^5.54.1",
+    "@typescript-eslint/parser": "^5.54.1",
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.7.0",
+    "prettier": "2.8.4",
     "typescript": "^4.9.5"
   },
   "bin": "server/build/cli.js",
