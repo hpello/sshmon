@@ -5,16 +5,19 @@ import { ConfigConfig } from './types'
 export type State = ConfigConfig
 
 const initialState = (): State => ({
-  autosave: false
+  autosave: false,
 })
 
-export const reducer = (state: State = initialState(), action: Action): State => {
+export const reducer = (
+  state: State = initialState(),
+  action: Action
+): State => {
   switch (action.type) {
-  case types.CONFIG_EDIT: {
-    const { config } = action
-    return { ...state, ...config }
-  }
-  default:
-    return state
+    case types.CONFIG_EDIT: {
+      const { config } = action
+      return { ...state, ...config }
+    }
+    default:
+      return state
   }
 }

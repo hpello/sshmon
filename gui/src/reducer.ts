@@ -7,10 +7,8 @@ export type State = {
   api: APIState
 }
 
-export type Action =
-  | APIAction
-  | { type: '__any_other_action_type__' }
+export type Action = APIAction | { type: '__any_other_action_type__' }
 
 export default combineReducers<State>({
-  api
+  api,
 } as any) // FIXME hpello https://github.com/reactjs/redux/issues/2709

@@ -4,9 +4,7 @@ import { join, dirname, format, isAbsolute, relative, parse } from 'path'
 
 // spawn a bunyan process
 const bunyanBin = join(__dirname, '../../node_modules/bunyan/bin/bunyan')
-const bunyanOpts = [
-  '--level', 'info'
-]
+const bunyanOpts = ['--level', 'info']
 if (process.stderr.isTTY) {
   bunyanOpts.push('--color')
 } else {
@@ -17,18 +15,17 @@ if (process.env.BUNYAN_OPTS !== undefined) {
   Array.prototype.push.apply(bunyanOpts, process.env.BUNYAN_OPTS.split(/\s/))
 }
 
-const bunyan = spawn(
-  process.execPath,
-  [bunyanBin].concat(bunyanOpts),
-  { detached: true, stdio: ['pipe', process.stderr, process.stderr] }
-)
-bunyan.on('error', err => console.error('bunyan process error:', err)) // tslint:disable-line no-console
+const bunyan = spawn(process.execPath, [bunyanBin].concat(bunyanOpts), {
+  detached: true,
+  stdio: ['pipe', process.stderr, process.stderr],
+})
+bunyan.on('error', (err) => console.error('bunyan process error:', err)) // tslint:disable-line no-console
 
 const log = bunyanCreateLogger({
   name: 'sshmon',
   level: 'trace',
   serializers: { err: stdSerializers.err },
-  stream: bunyan.stdin
+  stream: bunyan.stdin,
 })
 
 // find basename of a file relative to root dir

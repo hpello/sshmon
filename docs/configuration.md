@@ -6,7 +6,6 @@ You can set up SSH connections through the GUI or with a configuration file.
 
 ```yaml
 hosts:
-
   - host-1:
       label: My Favourite Host
       ssh:
@@ -28,7 +27,6 @@ hosts:
   - host-2: # host shorthand syntax
 
 config:
-
   autosave: true
 ```
 
@@ -40,36 +38,36 @@ Actually, it is recommended you set up first your host in your SSH config file (
 
 - Syntax
 
-    ```yaml
-    hosts:
-      - host-id-1:
-          # host config
-      - host-id-2:
-          # host config
-      ...
-    ```
+  ```yaml
+  hosts:
+    - host-id-1:
+        # host config
+    - host-id-2:
+        # host config
+    ...
+  ```
 
 - List of available options
 
-    | Option | Type | Description | Required | Default |
-    | ------ | ---- | ----------- | -------- | ------- |
-    | label | string | Friendly name for the GUI | no | '' |
-    | ssh.host | string | Host passed to SSH | no | host id |
-    | ssh.config | object | Options passed to SSH as `-o key=value` | no | {} |
-    | autostart | boolean | Try to connect to host at SSHMon startup | no | false |
-    | autoretry | boolean | Try to reconnect to host on connection error | no | false |
-    | forward | object | Forwardings for this host | no | {} |
+  | Option     | Type    | Description                                  | Required | Default |
+  | ---------- | ------- | -------------------------------------------- | -------- | ------- |
+  | label      | string  | Friendly name for the GUI                    | no       | ''      |
+  | ssh.host   | string  | Host passed to SSH                           | no       | host id |
+  | ssh.config | object  | Options passed to SSH as `-o key=value`      | no       | {}      |
+  | autostart  | boolean | Try to connect to host at SSHMon startup     | no       | false   |
+  | autoretry  | boolean | Try to reconnect to host on connection error | no       | false   |
+  | forward    | object  | Forwardings for this host                    | no       | {}      |
 
 ## Forwardings
 
 SSHMon allows you to define port/socket forwarding on your SSH connections. Here are the possible forwardings:
 
-| Type | Bind | Target |
-| ---- | ---- | ------ |
-| Local | `[address:]port` or unix socket (local) | `[address:]port` or unix socket (remote) |
-| Remote | `[address:]port` or unix socket (remote) | `[address:]port` or unix socket (local) |
-| Dynamic | `[address:]port` (local) | |
-| HTTP | | `[address:]port` or unix socket (remote) |
+| Type    | Bind                                     | Target                                   |
+| ------- | ---------------------------------------- | ---------------------------------------- |
+| Local   | `[address:]port` or unix socket (local)  | `[address:]port` or unix socket (remote) |
+| Remote  | `[address:]port` or unix socket (remote) | `[address:]port` or unix socket (local)  |
+| Dynamic | `[address:]port` (local)                 |                                          |
+| HTTP    |                                          | `[address:]port` or unix socket (remote) |
 
 Please read the SSH documentation for local, remote and dynamic types.
 
@@ -89,61 +87,62 @@ It was designed to allow easy access to a remote running SSHMon instance, but sh
 
 - Syntax
 
-    ```yaml
-    # inside host config:
-    forward:
-      - forwarding-1:
-           # forwarding config
-      - forwarding-2:
-           # forwarding config
-    ```
+  ```yaml
+  # inside host config:
+  forward:
+    - forwarding-1:
+        # forwarding config
+    - forwarding-2:
+        # forwarding config
+  ```
 
 - List of available options for a forwarding
 
-    | Option | Type | Description | Required | Default |
-    | ------ | ---- | ----------- | -------- | ------- |
-    | label | string | Friendly name for the GUI | no | '' |
-    | spec | string | Forwarding specifiation | yes |  |
-    | autostart | boolean | Try to forward at host connection | no | false |
-    | autoretry | boolean | Retry to forward on error | no | false |
+  | Option    | Type    | Description                       | Required | Default |
+  | --------- | ------- | --------------------------------- | -------- | ------- |
+  | label     | string  | Friendly name for the GUI         | no       | ''      |
+  | spec      | string  | Forwarding specifiation           | yes      |         |
+  | autostart | boolean | Try to forward at host connection | no       | false   |
+  | autoretry | boolean | Retry to forward on error         | no       | false   |
 
 - Spec
 
-    Similarly to the SSH forwarding syntax, the spec syntax is:
-    ```bash
-    Letter [bind] [target]
-    ```
+  Similarly to the SSH forwarding syntax, the spec syntax is:
 
-    Where the options are required following the given table:
+  ```bash
+  Letter [bind] [target]
+  ```
 
-    | Type | Letter | Bind | Target |
-    | ---- | ------ | ---- | ------ |
-    | Local | `L` | &#10003; | &#10003; |
-    | Remote | `R` | &#10003; | &#10003; |
-    | Dynamic | `D` | &#10003; | |
-    | HTTP | `H` | | &#10003; |
+  Where the options are required following the given table:
+
+  | Type    | Letter | Bind     | Target   |
+  | ------- | ------ | -------- | -------- |
+  | Local   | `L`    | &#10003; | &#10003; |
+  | Remote  | `R`    | &#10003; | &#10003; |
+  | Dynamic | `D`    | &#10003; |          |
+  | HTTP    | `H`    |          | &#10003; |
 
 - Forwarding shorthand syntax
 
-    You may replace the whole options object with the single spec string, e.g.:
+  You may replace the whole options object with the single spec string, e.g.:
 
-    ```yaml
-    forward:
-      - forward-1: L localhost:1234 localhost:8080
-      - forward-2: H 8377
-    ```
+  ```yaml
+  forward:
+    - forward-1: L localhost:1234 localhost:8080
+    - forward-2: H 8377
+  ```
 
 ## Config
 
 - Syntax
 
-    ```yaml
-    config:
-      autosave: true
-    ```
+  ```yaml
+  config:
+    autosave: true
+  ```
 
 - List of available options for config
 
-    | Option | Type | Description | Required | Default |
-    | ------ | ---- | ----------- | -------- | ------- |
-    | autosave | boolean | Write to this file on config change | no | false |
+  | Option   | Type    | Description                         | Required | Default |
+  | -------- | ------- | ----------------------------------- | -------- | ------- |
+  | autosave | boolean | Write to this file on config change | no       | false   |

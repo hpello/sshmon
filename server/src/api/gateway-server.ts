@@ -4,7 +4,8 @@ import { Socket } from 'net'
 import { PROXY_PATH_PREFIX } from './constants'
 import { ProxyTarget, SimpleProxyServer } from './simple-proxy-server'
 
-const makeProxyPathPrefix = (pathPrefix: string, id: string, fwdId: string) => [pathPrefix, id, fwdId].join('/')
+const makeProxyPathPrefix = (pathPrefix: string, id: string, fwdId: string) =>
+  [pathPrefix, id, fwdId].join('/')
 
 export class GatewayServer {
   server: SimpleProxyServer
@@ -43,7 +44,7 @@ export class GatewayServer {
   shutdown() {
     return new Promise((resolve) => {
       this.server.server.close(resolve)
-      this.sockets.forEach(socket => socket.destroy())
+      this.sockets.forEach((socket) => socket.destroy())
     })
   }
 }

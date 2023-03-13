@@ -8,7 +8,4 @@ const makeMiddleware = () => {
   return applyMiddleware(thunk, logMiddleware)
 }
 
-export const store = createStore(
-  reducer,
-  makeMiddleware()
-)
+export const store = createStore(reducer, makeMiddleware())

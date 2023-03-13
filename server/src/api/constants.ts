@@ -5,7 +5,7 @@ export enum socketTypes {
   apiCall = 'apiCall',
 
   // from server
-  state = 'state'
+  state = 'state',
 }
 
 export interface SocketMessageError {

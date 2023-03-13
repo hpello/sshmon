@@ -1,4 +1,4 @@
 export type AutoconnectConfig = {
-  start: boolean,
+  start: boolean
   retry: boolean
 }

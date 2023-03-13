@@ -15,7 +15,9 @@ export class SocketNotify {
   }
 
   register(socket: Socket) {
-    if (!this.sockets.has(socket)) { log.debug('register socket %s', socket.id) }
+    if (!this.sockets.has(socket)) {
+      log.debug('register socket %s', socket.id)
+    }
     this.sockets.add(socket)
     if (this.state !== null) {
       socket.emit(socketTypes.state, this.state)
@@ -23,7 +25,9 @@ export class SocketNotify {
   }
 
   unregister(socket: Socket) {
-    if (this.sockets.has(socket)) { log.debug('unregister socket %s', socket.id) }
+    if (this.sockets.has(socket)) {
+      log.debug('unregister socket %s', socket.id)
+    }
     this.sockets.delete(socket)
   }
 

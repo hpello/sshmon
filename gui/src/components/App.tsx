@@ -18,7 +18,7 @@ interface StateProps {
   apiState: APIState
 }
 
-interface Props extends StateProps, OwnProps { }
+interface Props extends StateProps, OwnProps {}
 
 const APIDisconnectedModal = (props: { active: boolean }) => (
   <div className={`modal ${props.active ? 'is-active' : ''}`}>
@@ -42,9 +42,15 @@ class App extends React.Component<Props> {
     const { info } = this.props.apiState.state.system
     return (
       <div>
-        <Header subtitle={!info ? null : <>
-          {info.user} @ {info.hostName}
-        </>} />
+        <Header
+          subtitle={
+            !info ? null : (
+              <>
+                {info.user} @ {info.hostName}
+              </>
+            )
+          }
+        />
 
         <div className="container">
           <div className="columns">
@@ -54,11 +60,7 @@ class App extends React.Component<Props> {
 
                 {this.props.apiState.state.hosts.map(({ id }) => {
                   return (
-                    <Host
-                      key={id}
-                      id={id}
-                      apiClient={this.props.apiClient}
-                    />
+                    <Host key={id} id={id} apiClient={this.props.apiClient} />
                   )
                 })}
 
@@ -73,7 +75,9 @@ class App extends React.Component<Props> {
           </div>
         </div>
 
-        <APIDisconnectedModal active={this.props.apiState.status === 'disconnected'} />
+        <APIDisconnectedModal
+          active={this.props.apiState.status === 'disconnected'}
+        />
       </div>
     )
   }
@@ -81,7 +85,7 @@ class App extends React.Component<Props> {
 
 const mapStateToProps = (state: State, ownProps: OwnProps): Props => ({
   apiClient: ownProps.apiClient,
-  apiState: state.api
+  apiState: state.api,
 })
 
 export default connect<StateProps, {}, OwnProps, State>(mapStateToProps)(App)

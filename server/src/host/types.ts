@@ -1,7 +1,7 @@
 export type HostConfig = {
   ssh: {
-    host: string,
+    host: string
     config: { [key: string]: string }
-  },
+  }
   label: string
 }

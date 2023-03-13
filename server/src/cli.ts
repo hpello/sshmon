@@ -10,11 +10,13 @@ const argv = yargs
     c: {
       alias: 'config-file',
       describe: 'Path to SSHMon config file',
-      type: 'string'
-    }
+      type: 'string',
+    },
   })
-  .help().alias('h', 'help')
-  .version().alias('v', 'version')
+  .help()
+  .alias('h', 'help')
+  .version()
+  .alias('v', 'version')
   .parse(process.argv)
 
-start(<any>argv as EngineOptions)
+start((<any>argv) as EngineOptions)

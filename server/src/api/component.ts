@@ -2,7 +2,10 @@ import { Server } from 'http'
 import { promisify } from 'util'
 
 import { createServer as createAPIServer } from './api-server'
-import { createServer as createGatewayServer, GatewayServer } from './gateway-server'
+import {
+  createServer as createGatewayServer,
+  GatewayServer,
+} from './gateway-server'
 import { ProxyTarget } from './simple-proxy-server'
 import { SocketNotify } from './socket-notify'
 import { State, Store } from '../types/redux'
@@ -34,12 +37,15 @@ export class API {
     this.store.subscribe(() => {
       const state = this.store.getState()
 
-      process.nextTick(() => { // prevent recursion
+      process.nextTick(() => {
+        // prevent recursion
         onStateChange(
           this.prevState,
           state,
-          (id: string, fwdId: string, target: ProxyTarget) => this.gatewayServer.addForwardingProxy(id, fwdId, target),
-          (id: string, fwdId: string) => this.gatewayServer.removeForwardingProxy(id, fwdId)
+          (id: string, fwdId: string, target: ProxyTarget) =>
+            this.gatewayServer.addForwardingProxy(id, fwdId, target),
+          (id: string, fwdId: string) =>
+            this.gatewayServer.removeForwardingProxy(id, fwdId)
         )
 
         this.socketNotify.onStateChange(state)
@@ -55,12 +61,16 @@ export class API {
 
   async listen(...args: any[]) {
     const apiSocketPath = await makeTmpPath(__filename)('api-server')
-    const apiListen = promisify(this.apiServer.listen.bind(this.apiServer, apiSocketPath))
+    const apiListen = promisify(
+      this.apiServer.listen.bind(this.apiServer, apiSocketPath)
+    )
     await apiListen()
     log.debug('api socket listening at %s', formatURL(this.apiServer))
 
     this.gatewayServer.setDefaultTarget({ socketPath: apiSocketPath })
-    const gatewayListen = promisify(this.gatewayServer.listen.bind(this.gatewayServer, ...args))
+    const gatewayListen = promisify(
+      this.gatewayServer.listen.bind(this.gatewayServer, ...args)
+    )
     await gatewayListen()
     log.info('api listening at %s', formatURL(this.gatewayServer.server.server))
   }

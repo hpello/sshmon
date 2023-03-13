@@ -6,5 +6,5 @@ export const thunks = {
   hostEdit,
   hostDelete,
   hostConnect,
-  hostDisconnect
+  hostDisconnect,
 }

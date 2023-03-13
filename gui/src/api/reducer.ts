@@ -3,7 +3,7 @@ import { State as APIState } from '../../../server/src/types/redux'
 import { Action } from '../types/redux'
 
 export type State = {
-  state: APIState,
+  state: APIState
   status: APIStatus
 }
 
@@ -15,19 +15,25 @@ const initialState = (): State => ({
     autoforwards: [],
     system: {
       info: null,
-      stats: null
+      stats: null,
     },
     config: {
-      autosave: false
-    }
+      autosave: false,
+    },
   },
-  status: 'disconnected'
+  status: 'disconnected',
 })
 
-export const reducer = (state: State = initialState(), action: Action): State => {
+export const reducer = (
+  state: State = initialState(),
+  action: Action
+): State => {
   switch (action.type) {
-  case types.API_STATE_CHANGE: return { ...state, state: action.state }
-  case types.API_STATUS_CHANGE: return { ...state, status: action.status }
-  default: return state
+    case types.API_STATE_CHANGE:
+      return { ...state, state: action.state }
+    case types.API_STATUS_CHANGE:
+      return { ...state, status: action.status }
+    default:
+      return state
   }
 }

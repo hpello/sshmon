@@ -14,7 +14,8 @@ export class Autoconnector {
     this.store.subscribe(() => {
       const state = this.store.getState()
 
-      process.nextTick(() => { // prevent recursion
+      process.nextTick(() => {
+        // prevent recursion
         onStateChange(this.prevState, state, this.store.dispatch)
         this.prevState = state
       })

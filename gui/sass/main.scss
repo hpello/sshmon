@@ -1,21 +1,21 @@
 @charset "utf-8";
 
-@import "../node_modules/font-awesome/scss/font-awesome";
+@import '../node_modules/font-awesome/scss/font-awesome';
 
-@import "../node_modules/bulmaswatch/darkly/_variables";
+@import '../node_modules/bulmaswatch/darkly/_variables';
 
 // some fonts (e.g. Monaco) do not have the same size as the other monospace fonts
 $family-monospace: monospace;
 
-@import "../node_modules/bulma/bulma";
-@import "../node_modules/bulmaswatch/darkly/_overrides";
+@import '../node_modules/bulma/bulma';
+@import '../node_modules/bulmaswatch/darkly/_overrides';
 
 .panel {
-  >:first-child {
+  > :first-child {
     border-top-left-radius: $panel-heading-radius;
     border-top-right-radius: $panel-heading-radius;
   }
-  >:last-child {
+  > :last-child {
     border-bottom-left-radius: $panel-heading-radius;
     border-bottom-right-radius: $panel-heading-radius;
   }
