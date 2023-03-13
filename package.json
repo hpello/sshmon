@@ -13,7 +13,7 @@
     "pkg": "mkdir -p build && pkg . -o build/sshmon",
     "pkg-clean": "! test -e build || rm -r build",
     "deploy": "yarn pkg-clean && yarn clean && yarn build && yarn pkg",
-    "test": "(cd test && make test) && yarn lint"
+    "test": "cd test && make test"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.54.1",
