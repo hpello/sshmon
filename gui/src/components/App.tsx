@@ -88,4 +88,4 @@ const mapStateToProps = (state: State, ownProps: OwnProps): Props => ({
   apiState: state.api,
 })
 
-export default connect<StateProps, {}, OwnProps, State>(mapStateToProps)(App)
+export default connect(mapStateToProps)(App)

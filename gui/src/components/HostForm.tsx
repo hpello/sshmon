@@ -368,6 +368,4 @@ const mapStateToProps = (state: State, ownProps: OwnProps): Props => ({
   hosts: state.api.state.hosts,
 })
 
-export default connect<StateProps, {}, OwnProps, State>(mapStateToProps)(
-  HostForm
-)
+export default connect(mapStateToProps)(HostForm)

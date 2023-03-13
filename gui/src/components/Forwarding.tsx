@@ -381,6 +381,4 @@ const mapStateToProps = (state: State, ownProps: OwnProps): Props => {
   }
 }
 
-export default connect<StateProps, {}, OwnProps, State>(mapStateToProps)(
-  Forwarding
-)
+export default connect(mapStateToProps)(Forwarding)

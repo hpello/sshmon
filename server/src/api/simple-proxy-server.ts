@@ -42,9 +42,8 @@ const handleRequest =
       req.url = url.slice(pathPrefix.length)
     }
 
-    // @ts-ignore: web function requires nullable options
-    proxy.proxyServer.web(req, res, (err) => {
-      if (err.code === 'ECONNRESET') {
+    proxy.proxyServer.web(req, res, {}, (err) => {
+      if ('code' in err && err.code === 'ECONNRESET') {
         res.writeHead(502, { 'Content-Type': 'application/json' })
         res.end(
           JSON.stringify({

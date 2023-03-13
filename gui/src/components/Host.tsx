@@ -307,4 +307,4 @@ const mapStateToProps = (state: State, ownProps: OwnProps): Props => ({
     state.api.state.autoconnects.find((x) => x.id === ownProps.id) || null,
 })
 
-export default connect<StateProps, {}, OwnProps, State>(mapStateToProps)(Host)
+export default connect(mapStateToProps)(Host)

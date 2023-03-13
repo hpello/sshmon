@@ -16,7 +16,7 @@ COPY gui/package.json gui/yarn.lock gui/
 COPY server/package.json server/yarn.lock server/
 RUN yarn
 
-COPY tsconfig.json tslint.yml ./
+COPY tsconfig.json ./
 COPY server/ server/
 COPY gui/ gui/
 

@@ -13,6 +13,7 @@ export const getSystemInfo = (): SystemInfo => {
   const { pid, platform } = process
   const nodeVersion = process.version
 
+  // eslint-disable-next-line @typescript-eslint/no-var-requires -- get version dynamically
   const { version } = require('../../../package.json')
 
   return {

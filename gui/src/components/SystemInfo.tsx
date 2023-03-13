@@ -112,6 +112,7 @@ const makeSystemSummary = (info: SystemInfoType): React.ReactNode => {
   )
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface -- left for clarity
 interface OwnProps {}
 
 interface StateProps {
@@ -182,6 +183,4 @@ const mapStateToProps = (state: State, ownProps: OwnProps): Props => ({
   system: state.api.state.system,
 })
 
-export default connect<StateProps, {}, OwnProps, State>(mapStateToProps)(
-  SystemInfo
-)
+export default connect(mapStateToProps)(SystemInfo)

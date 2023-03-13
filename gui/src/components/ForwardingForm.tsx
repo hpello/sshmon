@@ -440,6 +440,4 @@ const mapStateToProps = (state: State, ownProps: OwnProps): Props => ({
   forwardings: state.api.state.forwardings,
 })
 
-export default connect<StateProps, {}, OwnProps, State>(mapStateToProps)(
-  ForwardingForm
-)
+export default connect(mapStateToProps)(ForwardingForm)
