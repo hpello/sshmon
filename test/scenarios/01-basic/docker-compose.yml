@@ -10,7 +10,7 @@ services:
     command: /opt/sshmon/build/sshmon
     volumes:
       - ./config.yml:/root/.sshmon/config.yml:ro
-      - ./test.js:/opt/test/test.js:ro
+      - ./test.ts:/opt/test/test.ts:ro
 
   server:
     build:
