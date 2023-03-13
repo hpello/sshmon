@@ -1103,10 +1103,10 @@ pkg-fetch@3.4.2:
     tar-fs "^2.1.1"
     yargs "^16.2.0"
 
-"pkg@https://github.com/vercel/pkg#e3ac4902e9cb023f0ac2a596e21ff9166d2e268c":
-  version "5.8.0"
-  resolved "git+ssh://git@github.com/vercel/pkg.git#e3ac4902e9cb023f0ac2a596e21ff9166d2e268c"
-  integrity sha512-Viy1S6HzMMdMuJEaxEYe5jcm3Kn7GjbT7oY9erWGQqLwBIzVBRN38xLoaLyKOOx44VgdAyo9vsZ9KPYJkC2R+A==
+pkg@^5.8.1:
+  version "5.8.1"
+  resolved "https://registry.yarnpkg.com/pkg/-/pkg-5.8.1.tgz#862020f3c0575638ef7d1146f951a54d65ddc984"
+  integrity sha512-CjBWtFStCfIiT4Bde9QpJy0KeH19jCfwZRJqHFDFXfhUklCx8JoFmMj3wgnEYIwGmZVNkhsStPHEOnrtrQhEXA==
   dependencies:
     "@babel/generator" "7.18.2"
     "@babel/parser" "7.18.4"
