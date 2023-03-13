@@ -37,7 +37,7 @@ Go and have a look at the [Tutorial](docs/tutorial.md) to set up your first host
 ### Build from source
 
 ```bash
-yarn install-all
+yarn
 yarn build
 node server/build/cli.js
 ```
@@ -69,7 +69,7 @@ Docker and docker-compose are required.
 You may run the test suite with:
 
 ```bash
-(cd test && make test)
+yarn test
 ```
 
 ## Troubleshooting
