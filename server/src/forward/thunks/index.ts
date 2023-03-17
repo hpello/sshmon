@@ -1,8 +1,8 @@
 import { forwardingConnect, forwardingDisconnect } from './connect-thunks'
 import {
   forwardingCreate,
-  forwardingEdit,
   forwardingDelete,
+  forwardingEdit,
 } from './create-thunks'
 
 export const thunks = {

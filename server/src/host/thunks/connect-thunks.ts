@@ -1,15 +1,15 @@
-import { access } from 'fs'
 import { watch } from 'chokidar'
+import { access } from 'fs'
 import { find } from 'lodash'
 import { promisify } from 'util'
 
+import { createLogger } from '../../log'
+import { AsyncThunkAction, Dispatch, GetState } from '../../types/redux'
+import { ErrorWithCode } from '../../utils/error-with-code'
+import { makeTmpPath } from '../../utils/tmp'
 import { actions } from '../actions'
 import { spawnSshMaster } from '../ssh'
 import { HostConfig } from '../types'
-import { AsyncThunkAction, Dispatch, GetState } from '../../types/redux'
-import { ErrorWithCode } from '../../utils/error-with-code'
-import { createLogger } from '../../log'
-import { makeTmpPath } from '../../utils/tmp'
 
 const log = createLogger(__filename)
 

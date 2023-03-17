@@ -1,6 +1,6 @@
-import { ForwardingStatus, types } from './actions'
-import { ForwardingParams, ForwardingConfig } from './types'
 import { Action } from '../types/redux'
+import { ForwardingStatus, types } from './actions'
+import { ForwardingConfig, ForwardingParams } from './types'
 
 export type ForwardingSubState = {
   status: ForwardingStatus

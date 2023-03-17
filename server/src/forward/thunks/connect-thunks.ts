@@ -1,12 +1,12 @@
 import { find } from 'lodash'
 
-import { actions } from '../actions'
-import { executeSshControlCommand } from '../ssh'
-import { ForwardingSpec, ForwardingParams, fwdTypes } from '../types'
+import { createLogger } from '../../log'
 import { AsyncThunkAction, Dispatch, GetState } from '../../types/redux'
 import { ErrorWithCode } from '../../utils/error-with-code'
-import { createLogger } from '../../log'
 import { makeTmpPath } from '../../utils/tmp'
+import { actions } from '../actions'
+import { executeSshControlCommand } from '../ssh'
+import { ForwardingParams, ForwardingSpec, fwdTypes } from '../types'
 
 const log = createLogger(__filename)
 

@@ -1,10 +1,9 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 
-import { State } from '../types/redux'
-
 import { SystemState } from '../../../server/src/system/reducer'
 import { SystemInfo as SystemInfoType } from '../../../server/src/system/types'
+import { State } from '../types/redux'
 
 const largesp = <span style={{ wordSpacing: '0.5em' }}> </span>
 const thinnbsp = <span style={{ whiteSpace: 'nowrap' }}>&thinsp;</span>

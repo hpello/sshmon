@@ -2,9 +2,9 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 
+import { APIClient } from './api/client'
 import App from './components/App'
 import { store } from './store'
-import { APIClient } from './api/client'
 
 const apiClient = new APIClient(store)
 

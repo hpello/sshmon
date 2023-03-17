@@ -1,6 +1,6 @@
+import { Action } from '../types/redux'
 import { types } from './actions'
 import { SystemInfo, SystemStats } from './types'
-import { Action } from '../types/redux'
 
 export interface SystemState {
   info: SystemInfo | null

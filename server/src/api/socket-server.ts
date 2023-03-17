@@ -1,10 +1,10 @@
 import { Server } from 'socket.io'
 
-import { SOCKET_PATH, socketTypes } from './constants'
-import { setupSocket } from './socket-setup'
-import { SocketNotify } from './socket-notify'
-import { Store } from '../types/redux'
 import { createLogger } from '../log'
+import { Store } from '../types/redux'
+import { SOCKET_PATH, socketTypes } from './constants'
+import { SocketNotify } from './socket-notify'
+import { setupSocket } from './socket-setup'
 
 const log = createLogger(__filename)
 

@@ -1,6 +1,5 @@
-import * as stringify from 'json-stable-stringify'
-
 import { access, mkdir, stat, writeFile } from 'fs'
+import * as stringify from 'json-stable-stringify'
 import { homedir } from 'os'
 import { join } from 'path'
 import { promisify } from 'util'
@@ -9,18 +8,17 @@ const mkdirAsync = promisify(mkdir)
 const statAsync = promisify(stat)
 const writeFileAsync = promisify(writeFile)
 
-import { HostConfig, thunks as hostThunks } from '../host'
-import { ForwardingConfig, thunks as forwardThunks } from '../forward'
 import { AutoconnectConfig, thunks as autoconnectThunks } from '../autoconnect'
 import { AutoforwardConfig, thunks as autoforwardThunks } from '../autoforward'
+import { ForwardingConfig, thunks as forwardThunks } from '../forward'
+import { HostConfig, thunks as hostThunks } from '../host'
+import { createLogger } from '../log'
 import { State, Store } from '../types/redux'
-
 import { actions as configActions } from './actions'
 import { configObjectToState, configStateToObject } from './convert'
 import { ConfigSchema } from './schema'
 import { load, save } from './serialize'
 import { ConfigConfig, ConfigType } from './types'
-import { createLogger } from '../log'
 
 const log = createLogger(__filename)
 

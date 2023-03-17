@@ -1,9 +1,9 @@
 import { find, flatten, some } from 'lodash'
 
-import { actions } from './actions'
 import { HostStatus } from '../host'
-import { ForwardingState } from './reducer'
 import { Dispatch, State } from '../types/redux'
+import { actions } from './actions'
+import { ForwardingState } from './reducer'
 
 const getStatus = (state: State, id: string): HostStatus | null => {
   const host = find(state.hosts, { id })

@@ -1,9 +1,9 @@
 import { find, some } from 'lodash'
 
-import { actions } from './actions'
 import { HostStatus, thunks as hostThunks } from '../host'
-import { CONNECT_REASON_AUTOSTART, CONNECT_REASON_AUTORETRY } from './constants'
 import { Dispatch, State } from '../types/redux'
+import { actions } from './actions'
+import { CONNECT_REASON_AUTORETRY, CONNECT_REASON_AUTOSTART } from './constants'
 import { thunks } from './thunks'
 
 const getStatus = (state: State, id: string): HostStatus | null => {

@@ -1,10 +1,10 @@
 import { find } from 'lodash'
 
-import { actions } from '../actions'
 import { thunks as hostThunks } from '../../host'
+import { Dispatch, GetState } from '../../types/redux'
+import { actions } from '../actions'
 import { CONNECT_REASON_AUTORETRY } from '../constants'
 import { AutoconnectState } from '../reducer'
-import { Dispatch, GetState } from '../../types/redux'
 
 const MIN_TIMEOUT_MS = 100
 const MAX_TIMEOUT_MS = 5000

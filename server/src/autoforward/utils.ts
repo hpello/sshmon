@@ -1,10 +1,10 @@
 import { find } from 'lodash'
 
-import { actions } from './actions'
-import { HostStatus } from '../host'
 import { ForwardingStatus, thunks as forwardThunks } from '../forward'
-import { FORWARD_REASON_AUTOSTART, FORWARD_REASON_AUTORETRY } from './constants'
+import { HostStatus } from '../host'
 import { Dispatch, State } from '../types/redux'
+import { actions } from './actions'
+import { FORWARD_REASON_AUTORETRY, FORWARD_REASON_AUTOSTART } from './constants'
 import { thunks } from './thunks'
 
 const getHostStatus = (state: State, id: string): HostStatus | null => {

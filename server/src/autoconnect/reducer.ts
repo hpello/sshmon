@@ -1,5 +1,5 @@
-import { types } from './actions'
 import { Action } from '../types/redux'
+import { types } from './actions'
 import { AutoconnectConfig } from './types'
 
 export interface AutoconnectSubState {

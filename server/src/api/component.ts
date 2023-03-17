@@ -1,6 +1,10 @@
 import { Server } from 'http'
 import { promisify } from 'util'
 
+import { createLogger } from '../log'
+import { State, Store } from '../types/redux'
+import { formatURL } from '../utils/server-url'
+import { makeTmpPath } from '../utils/tmp'
 import { createServer as createAPIServer } from './api-server'
 import {
   createServer as createGatewayServer,
@@ -8,11 +12,7 @@ import {
 } from './gateway-server'
 import { ProxyTarget } from './simple-proxy-server'
 import { SocketNotify } from './socket-notify'
-import { State, Store } from '../types/redux'
 import { onStateChange } from './utils'
-import { createLogger } from '../log'
-import { formatURL } from '../utils/server-url'
-import { makeTmpPath } from '../utils/tmp'
 
 const log = createLogger(__filename)
 

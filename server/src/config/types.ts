@@ -1,7 +1,7 @@
-import { HostConfig } from '../host'
-import { ForwardingConfig } from '../forward'
 import { AutoconnectConfig } from '../autoconnect'
 import { AutoforwardConfig } from '../autoforward'
+import { ForwardingConfig } from '../forward'
+import { HostConfig } from '../host'
 
 export type ConfigConfig = {
   autosave: boolean

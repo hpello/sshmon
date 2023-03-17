@@ -1,16 +1,17 @@
 import { find, flatten } from 'lodash'
-import { ConfigConfig, ConfigType } from './types'
+
+import { AutoconnectConfig } from '../autoconnect'
+import { AutoforwardConfig } from '../autoforward'
+import { ForwardingConfig } from '../forward'
+import { HostConfig } from '../host'
 import { parseForwardingSpec, serializeForwardingSpec } from './forwarding-spec'
 import {
   ConfigConfigSchema,
   ConfigSchema,
-  HostSchema,
   ForwardingSchema,
+  HostSchema,
 } from './schema'
-import { HostConfig } from '../host'
-import { ForwardingConfig } from '../forward'
-import { AutoconnectConfig } from '../autoconnect'
-import { AutoforwardConfig } from '../autoforward'
+import { ConfigConfig, ConfigType } from './types'
 
 // object to state
 const makeForwardingState = (

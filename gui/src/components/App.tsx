@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { APIClient } from '../api/client'
 import { State as APIState } from '../api/reducer'
 import { State } from '../types/redux'
-
 import Header from './Header'
 import Host from './Host'
 import HostCreate from './HostCreate'

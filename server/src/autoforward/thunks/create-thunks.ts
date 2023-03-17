@@ -1,10 +1,10 @@
 import { find } from 'lodash'
 
-import { actions } from '../actions'
-import { AutoforwardConfig } from '../types'
+import { createLogger } from '../../log'
 import { AsyncThunkAction, Dispatch, GetState } from '../../types/redux'
 import { ErrorWithCode } from '../../utils/error-with-code'
-import { createLogger } from '../../log'
+import { actions } from '../actions'
+import { AutoforwardConfig } from '../types'
 
 const log = createLogger(__filename)
 

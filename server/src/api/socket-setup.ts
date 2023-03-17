@@ -2,12 +2,12 @@ import { Socket } from 'socket.io'
 
 import { thunks as autoconnectThunks } from '../autoconnect'
 import { thunks as autoforwardThunks } from '../autoforward'
-import { thunks as hostThunks } from '../host'
 import { thunks as forwardThunks } from '../forward'
-import { APIEndpoint, apiKeys } from './api'
-import { socketTypes, SocketMessageError } from './constants'
-import { AsyncThunkAction, Store } from '../types/redux'
+import { thunks as hostThunks } from '../host'
 import { createLogger } from '../log'
+import { AsyncThunkAction, Store } from '../types/redux'
+import { APIEndpoint, apiKeys } from './api'
+import { SocketMessageError, socketTypes } from './constants'
 
 const log = createLogger(__filename)
 

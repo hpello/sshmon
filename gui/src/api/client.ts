@@ -1,18 +1,18 @@
 import { io, Socket } from 'socket.io-client'
 
-import { actions } from './actions'
 import { APIEndpoint, apiKeys } from '../../../server/src/api/api'
 import {
   SOCKET_PATH,
-  socketTypes,
   SocketMessageError,
+  socketTypes,
 } from '../../../server/src/api/constants'
 import { AutoconnectConfig } from '../../../server/src/autoconnect/types'
 import { AutoforwardConfig } from '../../../server/src/autoforward/types'
-import { HostConfig } from '../../../server/src/host/types'
 import { ForwardingConfig } from '../../../server/src/forward/types'
+import { HostConfig } from '../../../server/src/host/types'
 import { State as APIState } from '../../../server/src/types/redux'
 import { Store } from '../types/redux'
+import { actions } from './actions'
 
 const setup = (socket: Socket, store: Store) => {
   socket.on('connect', () => {

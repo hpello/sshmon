@@ -1,7 +1,7 @@
 import { AutoconnectConfig } from '../autoconnect'
 import { AutoforwardConfig } from '../autoforward'
-import { HostConfig } from '../host'
 import { ForwardingConfig } from '../forward'
+import { HostConfig } from '../host'
 
 export enum apiKeys {
   hostCreate = 'hostCreate',

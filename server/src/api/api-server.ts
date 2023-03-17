@@ -1,7 +1,7 @@
-import { createServer as createStaticServer } from './static-server'
+import { Store } from '../types/redux'
 import { SocketNotify } from './socket-notify'
 import { createIO } from './socket-server'
-import { Store } from '../types/redux'
+import { createServer as createStaticServer } from './static-server'
 
 export const createServer = (store: Store, socketNotify: SocketNotify) => {
   const server = createStaticServer()

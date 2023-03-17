@@ -1,8 +1,6 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 
-import { State } from '../types/redux'
-
 import { PROXY_PATH_PREFIX } from '../../../server/src/api/constants'
 import { AutoforwardState } from '../../../server/src/autoforward/reducer'
 import { ForwardingStatus } from '../../../server/src/forward/actions'
@@ -15,9 +13,8 @@ import {
   ForwardingSpec,
   fwdTypes,
 } from '../../../server/src/forward/types'
-
 import { APIClient } from '../api/client'
-
+import { State } from '../types/redux'
 import ForwardingForm from './ForwardingForm'
 
 interface OwnProps {

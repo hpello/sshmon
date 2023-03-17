@@ -1,7 +1,7 @@
 import {
   autoconnectCreate,
-  autoconnectEdit,
   autoconnectDelete,
+  autoconnectEdit,
 } from './create-thunks'
 import { autoretrySpawn } from './retry-thunks'
 

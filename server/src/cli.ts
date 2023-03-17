@@ -2,7 +2,7 @@ import * as yargs from 'yargs'
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'production'
 
-import { start, EngineOptions } from './engine'
+import { EngineOptions, start } from './engine'
 
 const argv = yargs
   .usage('Usage: $0 [options]')

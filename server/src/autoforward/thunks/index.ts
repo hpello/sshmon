@@ -1,7 +1,7 @@
 import {
   autoforwardCreate,
-  autoforwardEdit,
   autoforwardDelete,
+  autoforwardEdit,
 } from './create-thunks'
 import { autoretrySpawn } from './retry-thunks'
 

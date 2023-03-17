@@ -1,13 +1,13 @@
 import { API } from './api'
-import { Config } from './config'
-import { Forwarder } from './forward'
 import { Autoconnector } from './autoconnect'
 import { Autoforwarder } from './autoforward'
+import { Config } from './config'
+import { Forwarder } from './forward'
+import { createLogger } from './log'
 import { store } from './store'
 import { System } from './system'
 import { disconnectAllHosts } from './utils/disconnect-all-hosts'
 import { setupGracefulShutdown } from './utils/graceful-shutdown'
-import { createLogger } from './log'
 
 const log = createLogger(__filename)
 

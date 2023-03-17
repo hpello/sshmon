@@ -1,11 +1,10 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 
-import { APIClient } from '../api/client'
 import { AutoconnectConfig } from '../../../server/src/autoconnect/types'
 import { HostState } from '../../../server/src/host/reducer'
 import { HostConfig } from '../../../server/src/host/types'
-
+import { APIClient } from '../api/client'
 import { State } from '../types/redux'
 
 interface OwnProps {

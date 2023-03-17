@@ -1,5 +1,5 @@
-import { createLogger } from '.'
 import { Action, Dispatch, Middleware } from '../types/redux'
+import { createLogger } from '.'
 
 const log = createLogger('redux')
 

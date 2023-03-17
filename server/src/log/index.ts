@@ -1,6 +1,6 @@
 import { createLogger as bunyanCreateLogger, stdSerializers } from 'bunyan'
 import { spawn } from 'child_process'
-import { join, dirname, format, isAbsolute, relative, parse } from 'path'
+import { dirname, format, isAbsolute, join, parse, relative } from 'path'
 
 // spawn a bunyan process
 const bunyanBin = join(__dirname, '../../node_modules/bunyan/bin/bunyan')
