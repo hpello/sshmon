@@ -16,8 +16,7 @@
     "js-watch": "yarn js-compile-watch & yarn js-uglify-watch",
     "build": "yarn mkbdir && yarn css-build && yarn js-build",
     "build-watch": "yarn mkbdir && yarn css-watch & yarn js-watch",
-    "clean": "! test -e public/build || rm -r public/build",
-    "lint": "../node_modules/.bin/tslint -p ."
+    "clean": "! test -e public/build || rm -r public/build"
   },
   "dependencies": {
     "bulma": "^0.9.4",

@@ -5,7 +5,8 @@
   "scripts": {
     "build": "yarn --cwd server build && yarn --cwd gui build",
     "build-watch": "yarn --cwd server build-watch & yarn --cwd gui build-watch",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx,.json && prettier --check .",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx,.json",
+    "prettier-check": "prettier --check .",
     "clean": "yarn --cwd server clean && yarn --cwd gui clean",
     "tsc": "tsc --outDir /tmp/none",
     "tsc-watch": "yarn tsc --watch",
