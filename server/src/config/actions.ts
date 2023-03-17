@@ -1,4 +1,4 @@
-import { ConfigConfig } from './types'
+import type { ConfigConfig } from './types'
 
 export enum types {
   CONFIG_EDIT = 'CONFIG_EDIT',

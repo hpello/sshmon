@@ -1,4 +1,4 @@
-import { AutoforwardConfig } from './types'
+import type { AutoforwardConfig } from './types'
 
 export enum types {
   AUTOFORWARD_CREATE = 'AUTOFORWARD_CREATE',

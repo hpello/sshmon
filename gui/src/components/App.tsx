@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 
-import { APIClient } from '../api/client'
-import { State as APIState } from '../api/reducer'
-import { State } from '../types/redux'
+import type { APIClient } from '../api/client'
+import type { State as APIState } from '../api/reducer'
+import type { State } from '../types/redux'
 import Header from './Header'
 import Host from './Host'
 import HostCreate from './HostCreate'

@@ -1,6 +1,6 @@
-import { Action } from '../types/redux'
+import type { Action } from '../types/redux'
 import { types } from './actions'
-import { AutoconnectConfig } from './types'
+import type { AutoconnectConfig } from './types'
 
 export interface AutoconnectSubState {
   autoretryId: string | null

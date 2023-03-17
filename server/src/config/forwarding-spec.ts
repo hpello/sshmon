@@ -1,4 +1,5 @@
-import { ForwardingSpec, fwdTypes } from '../forward'
+import type { ForwardingSpec } from '../forward'
+import { fwdTypes } from '../forward'
 
 const token = '((?:\\S|(?:\\\\ ))+)'
 const dynamicRegex = new RegExp(`^(?:D|dynamic) +${token}$`)

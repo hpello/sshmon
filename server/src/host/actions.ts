@@ -1,4 +1,4 @@
-import { HostConfig } from './types'
+import type { HostConfig } from './types'
 
 export enum types {
   HOST_CREATE = 'HOST_CREATE',

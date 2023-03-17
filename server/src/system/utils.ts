@@ -1,6 +1,6 @@
 import * as os from 'os'
 
-import { SystemInfo, SystemStats } from './types'
+import type { SystemInfo, SystemStats } from './types'
 
 export const getSystemInfo = (): SystemInfo => {
   const arch = os.arch()

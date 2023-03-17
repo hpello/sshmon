@@ -1,16 +1,14 @@
-import { Server } from 'http'
+import type { Server } from 'http'
 import { promisify } from 'util'
 
 import { createLogger } from '../log'
-import { State, Store } from '../types/redux'
+import type { State, Store } from '../types/redux'
 import { formatURL } from '../utils/server-url'
 import { makeTmpPath } from '../utils/tmp'
 import { createServer as createAPIServer } from './api-server'
-import {
-  createServer as createGatewayServer,
-  GatewayServer,
-} from './gateway-server'
-import { ProxyTarget } from './simple-proxy-server'
+import type { GatewayServer } from './gateway-server'
+import { createServer as createGatewayServer } from './gateway-server'
+import type { ProxyTarget } from './simple-proxy-server'
 import { SocketNotify } from './socket-notify'
 import { onStateChange } from './utils'
 

@@ -1,6 +1,7 @@
-import { Action } from '../types/redux'
-import { HostStatus, types } from './actions'
-import { HostConfig } from './types'
+import type { Action } from '../types/redux'
+import type { HostStatus } from './actions'
+import { types } from './actions'
+import type { HostConfig } from './types'
 
 export interface HostSubState {
   status: HostStatus

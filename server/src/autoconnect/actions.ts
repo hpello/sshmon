@@ -1,4 +1,4 @@
-import { AutoconnectConfig } from './types'
+import type { AutoconnectConfig } from './types'
 
 export enum types {
   AUTOCONNECT_CREATE = 'AUTOCONNECT_CREATE',

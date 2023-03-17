@@ -1,10 +1,10 @@
 import { find } from 'lodash'
 
 import { thunks as forwardTunks } from '../../forward'
-import { Dispatch, GetState } from '../../types/redux'
+import type { Dispatch, GetState } from '../../types/redux'
 import { actions } from '../actions'
 import { FORWARD_REASON_AUTORETRY } from '../constants'
-import { AutoforwardState } from '../reducer'
+import type { AutoforwardState } from '../reducer'
 
 const MIN_TIMEOUT_MS = 100
 const MAX_TIMEOUT_MS = 5000

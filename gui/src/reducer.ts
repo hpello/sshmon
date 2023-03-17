@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux'
 
-import { Action as APIAction } from './api/actions'
-import { reducer as api, State as APIState } from './api/reducer'
+import type { Action as APIAction } from './api/actions'
+import type { State as APIState } from './api/reducer'
+import { reducer as api } from './api/reducer'
 
 export type State = {
   api: APIState

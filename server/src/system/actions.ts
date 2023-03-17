@@ -1,4 +1,4 @@
-import { SystemInfo, SystemStats } from './types'
+import type { SystemInfo, SystemStats } from './types'
 
 export enum types {
   SYSTEM_ADD_INFO = 'SYSTEM_ADD_INFO',

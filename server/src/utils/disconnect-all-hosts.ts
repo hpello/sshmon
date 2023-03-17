@@ -1,5 +1,5 @@
 import { thunks as hostThunks } from '../host'
-import { Store } from '../types/redux'
+import type { Store } from '../types/redux'
 
 const DISCONNECT_REASON = 'shutdown'
 

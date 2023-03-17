@@ -1,6 +1,6 @@
-import { Action } from '../types/redux'
+import type { Action } from '../types/redux'
 import { types } from './actions'
-import { AutoforwardConfig } from './types'
+import type { AutoforwardConfig } from './types'
 
 export interface AutoforwardSubState {
   autoretryId: string | null

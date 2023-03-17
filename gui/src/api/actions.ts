@@ -1,4 +1,4 @@
-import { State as APIState } from '../../../server/src/types/redux'
+import type { State as APIState } from '../../../server/src/types/redux'
 
 export enum types {
   API_STATE_CHANGE = 'API_STATE_CHANGE',

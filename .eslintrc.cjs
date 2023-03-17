@@ -11,6 +11,7 @@ module.exports = {
   plugins: ['@typescript-eslint', 'simple-import-sort'],
   root: true,
   rules: {
+    '@typescript-eslint/consistent-type-imports': 'error',
     '@typescript-eslint/no-explicit-any': 'off',
     'simple-import-sort/imports': 'error',
   },

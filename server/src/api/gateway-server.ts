@@ -1,8 +1,9 @@
-import { Server } from 'http'
-import { Socket } from 'net'
+import type { Server } from 'http'
+import type { Socket } from 'net'
 
 import { PROXY_PATH_PREFIX } from './constants'
-import { ProxyTarget, SimpleProxyServer } from './simple-proxy-server'
+import type { ProxyTarget } from './simple-proxy-server'
+import { SimpleProxyServer } from './simple-proxy-server'
 
 const makeProxyPathPrefix = (pathPrefix: string, id: string, fwdId: string) =>
   [pathPrefix, id, fwdId].join('/')

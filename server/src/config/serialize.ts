@@ -3,7 +3,8 @@ import { dump as yamlDump, JSON_SCHEMA, load as yamlLoad } from 'js-yaml'
 import { promisify } from 'util'
 
 import { createLogger } from '../log'
-import { ConfigSchema, configSchema } from './schema'
+import type { ConfigSchema } from './schema'
+import { configSchema } from './schema'
 
 const log = createLogger(__filename)
 

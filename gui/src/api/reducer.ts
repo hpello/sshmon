@@ -1,6 +1,7 @@
-import { State as APIState } from '../../../server/src/types/redux'
-import { Action } from '../types/redux'
-import { APIStatus, types } from './actions'
+import type { State as APIState } from '../../../server/src/types/redux'
+import type { Action } from '../types/redux'
+import type { APIStatus } from './actions'
+import { types } from './actions'
 
 export type State = {
   state: APIState

@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { APIClient } from '../api/client'
+import type { APIClient } from '../api/client'
 import ForwardingForm from './ForwardingForm'
 
 interface Props {

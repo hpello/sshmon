@@ -8,17 +8,21 @@ const mkdirAsync = promisify(mkdir)
 const statAsync = promisify(stat)
 const writeFileAsync = promisify(writeFile)
 
-import { AutoconnectConfig, thunks as autoconnectThunks } from '../autoconnect'
-import { AutoforwardConfig, thunks as autoforwardThunks } from '../autoforward'
-import { ForwardingConfig, thunks as forwardThunks } from '../forward'
-import { HostConfig, thunks as hostThunks } from '../host'
+import type { AutoconnectConfig } from '../autoconnect'
+import { thunks as autoconnectThunks } from '../autoconnect'
+import type { AutoforwardConfig } from '../autoforward'
+import { thunks as autoforwardThunks } from '../autoforward'
+import type { ForwardingConfig } from '../forward'
+import { thunks as forwardThunks } from '../forward'
+import type { HostConfig } from '../host'
+import { thunks as hostThunks } from '../host'
 import { createLogger } from '../log'
-import { State, Store } from '../types/redux'
+import type { State, Store } from '../types/redux'
 import { actions as configActions } from './actions'
 import { configObjectToState, configStateToObject } from './convert'
-import { ConfigSchema } from './schema'
+import type { ConfigSchema } from './schema'
 import { load, save } from './serialize'
-import { ConfigConfig, ConfigType } from './types'
+import type { ConfigConfig, ConfigType } from './types'
 
 const log = createLogger(__filename)
 

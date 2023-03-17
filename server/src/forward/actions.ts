@@ -1,4 +1,4 @@
-import { ForwardingConfig, ForwardingParams } from './types'
+import type { ForwardingConfig, ForwardingParams } from './types'
 
 export enum types {
   FORWARDING_CREATE = 'FORWARDING_CREATE',

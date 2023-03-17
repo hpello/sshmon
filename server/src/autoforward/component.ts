@@ -1,4 +1,4 @@
-import { State, Store } from '../types/redux'
+import type { State, Store } from '../types/redux'
 import { onStateChange } from './utils'
 
 export class Autoforwarder {

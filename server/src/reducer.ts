@@ -1,35 +1,23 @@
 import { combineReducers } from 'redux'
 
-import {
+import type {
   Action as AutoconnectAction,
-  reducer as autoconnects,
   State as AutoconnectState,
 } from './autoconnect'
-import {
+import { reducer as autoconnects } from './autoconnect'
+import type {
   Action as AutoforwardAction,
-  reducer as autoforwards,
   State as AutoforwardState,
 } from './autoforward'
-import {
-  Action as ConfigAction,
-  reducer as config,
-  State as ConfigState,
-} from './config'
-import {
-  Action as ForwardAction,
-  reducer as forwardings,
-  State as ForwardState,
-} from './forward'
-import {
-  Action as HostAction,
-  reducer as hosts,
-  State as HostState,
-} from './host'
-import {
-  Action as SystemAction,
-  reducer as system,
-  State as SystemState,
-} from './system'
+import { reducer as autoforwards } from './autoforward'
+import type { Action as ConfigAction, State as ConfigState } from './config'
+import { reducer as config } from './config'
+import type { Action as ForwardAction, State as ForwardState } from './forward'
+import { reducer as forwardings } from './forward'
+import type { Action as HostAction, State as HostState } from './host'
+import { reducer as hosts } from './host'
+import type { Action as SystemAction, State as SystemState } from './system'
+import { reducer as system } from './system'
 
 export type State = {
   hosts: HostState

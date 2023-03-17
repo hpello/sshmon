@@ -1,7 +1,7 @@
-import { Socket } from 'socket.io'
+import type { Socket } from 'socket.io'
 
 import { createLogger } from '../log'
-import { State } from '../types/redux'
+import type { State } from '../types/redux'
 import { socketTypes } from './constants'
 
 const log = createLogger(__filename)

@@ -1,8 +1,9 @@
 import { find } from 'lodash'
 
-import { ForwardingStatus, thunks as forwardThunks } from '../forward'
-import { HostStatus } from '../host'
-import { Dispatch, State } from '../types/redux'
+import type { ForwardingStatus } from '../forward'
+import { thunks as forwardThunks } from '../forward'
+import type { HostStatus } from '../host'
+import type { Dispatch, State } from '../types/redux'
 import { actions } from './actions'
 import { FORWARD_REASON_AUTORETRY, FORWARD_REASON_AUTOSTART } from './constants'
 import { thunks } from './thunks'

@@ -1,17 +1,16 @@
-import { io, Socket } from 'socket.io-client'
+import type { Socket } from 'socket.io-client'
+import { io } from 'socket.io-client'
 
-import { APIEndpoint, apiKeys } from '../../../server/src/api/api'
-import {
-  SOCKET_PATH,
-  SocketMessageError,
-  socketTypes,
-} from '../../../server/src/api/constants'
-import { AutoconnectConfig } from '../../../server/src/autoconnect/types'
-import { AutoforwardConfig } from '../../../server/src/autoforward/types'
-import { ForwardingConfig } from '../../../server/src/forward/types'
-import { HostConfig } from '../../../server/src/host/types'
-import { State as APIState } from '../../../server/src/types/redux'
-import { Store } from '../types/redux'
+import type { APIEndpoint } from '../../../server/src/api/api'
+import { apiKeys } from '../../../server/src/api/api'
+import type { SocketMessageError } from '../../../server/src/api/constants'
+import { SOCKET_PATH, socketTypes } from '../../../server/src/api/constants'
+import type { AutoconnectConfig } from '../../../server/src/autoconnect/types'
+import type { AutoforwardConfig } from '../../../server/src/autoforward/types'
+import type { ForwardingConfig } from '../../../server/src/forward/types'
+import type { HostConfig } from '../../../server/src/host/types'
+import type { State as APIState } from '../../../server/src/types/redux'
+import type { Store } from '../types/redux'
 import { actions } from './actions'
 
 const setup = (socket: Socket, store: Store) => {

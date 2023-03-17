@@ -1,11 +1,7 @@
-import {
-  createServer as createHTTPServer,
-  IncomingMessage,
-  Server,
-  ServerResponse,
-} from 'http'
+import type { IncomingMessage, Server, ServerResponse } from 'http'
+import { createServer as createHTTPServer } from 'http'
 import * as HTTPProxy from 'http-proxy'
-import { Socket } from 'net'
+import type { Socket } from 'net'
 
 export type ProxyTarget =
   | { host: string; port: number }

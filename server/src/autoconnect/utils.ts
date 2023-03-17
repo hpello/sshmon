@@ -1,7 +1,8 @@
 import { find, some } from 'lodash'
 
-import { HostStatus, thunks as hostThunks } from '../host'
-import { Dispatch, State } from '../types/redux'
+import type { HostStatus } from '../host'
+import { thunks as hostThunks } from '../host'
+import type { Dispatch, State } from '../types/redux'
 import { actions } from './actions'
 import { CONNECT_REASON_AUTORETRY, CONNECT_REASON_AUTOSTART } from './constants'
 import { thunks } from './thunks'

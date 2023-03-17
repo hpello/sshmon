@@ -1,13 +1,15 @@
-import { Socket } from 'socket.io'
+import type { Socket } from 'socket.io'
 
 import { thunks as autoconnectThunks } from '../autoconnect'
 import { thunks as autoforwardThunks } from '../autoforward'
 import { thunks as forwardThunks } from '../forward'
 import { thunks as hostThunks } from '../host'
 import { createLogger } from '../log'
-import { AsyncThunkAction, Store } from '../types/redux'
-import { APIEndpoint, apiKeys } from './api'
-import { SocketMessageError, socketTypes } from './constants'
+import type { AsyncThunkAction, Store } from '../types/redux'
+import type { APIEndpoint } from './api'
+import { apiKeys } from './api'
+import type { SocketMessageError } from './constants'
+import { socketTypes } from './constants'
 
 const log = createLogger(__filename)
 

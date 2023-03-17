@@ -1,4 +1,4 @@
-import { Server } from 'http'
+import type { Server } from 'http'
 
 export const formatURL = (server: Server): string => {
   const a = server.address()

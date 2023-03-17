@@ -1,6 +1,6 @@
-import { Action } from '../types/redux'
+import type { Action } from '../types/redux'
 import { types } from './actions'
-import { ConfigConfig } from './types'
+import type { ConfigConfig } from './types'
 
 export type State = ConfigConfig
 

@@ -1,4 +1,4 @@
-import { Store } from '../types/redux'
+import type { Store } from '../types/redux'
 import { actions } from './actions'
 import { getSystemInfo, getSystemStats } from './utils'
 
