@@ -1,15 +1,12 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 
-import type { AutoforwardConfig } from '@/server/autoforward/types'
-import type { ForwardingState } from '@/server/forward/reducer'
-import type {
-  ForwardingConfig,
-  ForwardingSpec,
-} from '@/server/forward/types'
-import { fwdTypes } from '@/server/forward/types'
 import type { APIClient } from '@/gui/api/client'
 import type { State } from '@/gui/types/redux'
+import type { AutoforwardConfig } from '@/server/autoforward/types'
+import type { ForwardingState } from '@/server/forward/reducer'
+import type { ForwardingConfig, ForwardingSpec } from '@/server/forward/types'
+import { fwdTypes } from '@/server/forward/types'
 
 interface OwnProps {
   id: string

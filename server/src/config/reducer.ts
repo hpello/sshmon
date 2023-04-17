@@ -1,4 +1,5 @@
 import type { Action } from '@/server/types/redux'
+
 import { types } from './actions'
 import type { ConfigConfig } from './types'
 

@@ -1,6 +1,7 @@
 import type { Socket } from 'socket.io-client'
 import { io } from 'socket.io-client'
 
+import type { Store } from '@/gui/types/redux'
 import type { APIEndpoint } from '@/server/api/api'
 import { apiKeys } from '@/server/api/api'
 import type { SocketMessageError } from '@/server/api/constants'
@@ -10,7 +11,7 @@ import type { AutoforwardConfig } from '@/server/autoforward/types'
 import type { ForwardingConfig } from '@/server/forward/types'
 import type { HostConfig } from '@/server/host/types'
 import type { State as APIState } from '@/server/types/redux'
-import type { Store } from '@/gui/types/redux'
+
 import { actions } from './actions'
 
 const setup = (socket: Socket, store: Store) => {

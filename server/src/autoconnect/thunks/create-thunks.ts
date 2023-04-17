@@ -1,10 +1,10 @@
 import { find } from 'lodash'
 
+import { actions } from '@/server/autoconnect/actions'
+import type { AutoconnectConfig } from '@/server/autoconnect/types'
 import { createLogger } from '@/server/log'
 import type { AsyncThunkAction, Dispatch, GetState } from '@/server/types/redux'
 import { ErrorWithCode } from '@/server/utils/error-with-code'
-import { actions } from '@/server/autoconnect/actions'
-import type { AutoconnectConfig } from '@/server/autoconnect/types'
 
 const log = createLogger(__filename)
 
