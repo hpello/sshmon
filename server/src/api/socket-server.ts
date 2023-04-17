@@ -1,7 +1,7 @@
 import { Server } from 'socket.io'
 
-import { createLogger } from '../log'
-import type { Store } from '../types/redux'
+import { createLogger } from '@/server/log'
+import type { Store } from '@/server/types/redux'
 import { SOCKET_PATH, socketTypes } from './constants'
 import type { SocketNotify } from './socket-notify'
 import { setupSocket } from './socket-setup'

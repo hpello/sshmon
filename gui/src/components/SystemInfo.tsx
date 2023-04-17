@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 
-import type { SystemState } from '../../../server/src/system/reducer'
-import type { SystemInfo as SystemInfoType } from '../../../server/src/system/types'
-import type { State } from '../types/redux'
+import type { SystemState } from '@/server/system/reducer'
+import type { SystemInfo as SystemInfoType } from '@/server/system/types'
+import type { State } from '@/gui/types/redux'
 
 const largesp = <span style={{ wordSpacing: '0.5em' }}> </span>
 const thinnbsp = <span style={{ whiteSpace: 'nowrap' }}>&thinsp;</span>

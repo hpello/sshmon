@@ -1,8 +1,8 @@
 import { find } from 'lodash'
 
-import type { ForwardingStatus } from '../forward'
-import { fwdTypes } from '../forward'
-import type { State } from '../types/redux'
+import type { ForwardingStatus } from '@/server/forward'
+import { fwdTypes } from '@/server/forward'
+import type { State } from '@/server/types/redux'
 import type { ProxyTarget } from './simple-proxy-server'
 
 const getForwardingStatus = (

@@ -7,6 +7,11 @@
     "strict": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/server/*": ["server/src/*"],
+      "@/gui/*": ["gui/src/*"]
+    }
   }
 }

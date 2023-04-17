@@ -13,6 +13,8 @@ module.exports = {
   rules: {
     '@typescript-eslint/consistent-type-imports': 'error',
     '@typescript-eslint/no-explicit-any': 'off',
+    // disable parent imports
+    'no-restricted-imports': ['error', { patterns: ['[.][.]'] }],
     'simple-import-sort/imports': 'error',
   },
 }

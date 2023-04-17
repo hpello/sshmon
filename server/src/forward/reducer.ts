@@ -1,4 +1,4 @@
-import type { Action } from '../types/redux'
+import type { Action } from '@/server/types/redux'
 import type { ForwardingStatus } from './actions'
 import { types } from './actions'
 import type { ForwardingConfig, ForwardingParams } from './types'

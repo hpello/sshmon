@@ -1,10 +1,10 @@
 import { find } from 'lodash'
 
-import { createLogger } from '../../log'
-import type { AsyncThunkAction, Dispatch, GetState } from '../../types/redux'
-import { ErrorWithCode } from '../../utils/error-with-code'
-import { actions } from '../actions'
-import type { HostConfig } from '../types'
+import { createLogger } from '@/server/log'
+import type { AsyncThunkAction, Dispatch, GetState } from '@/server/types/redux'
+import { ErrorWithCode } from '@/server/utils/error-with-code'
+import { actions } from '@/server/host/actions'
+import type { HostConfig } from '@/server/host/types'
 
 const log = createLogger(__filename)
 

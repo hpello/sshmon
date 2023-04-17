@@ -1,9 +1,9 @@
 import { find, flatten } from 'lodash'
 
-import type { AutoconnectConfig } from '../autoconnect'
-import type { AutoforwardConfig } from '../autoforward'
-import type { ForwardingConfig } from '../forward'
-import type { HostConfig } from '../host'
+import type { AutoconnectConfig } from '@/server/autoconnect'
+import type { AutoforwardConfig } from '@/server/autoforward'
+import type { ForwardingConfig } from '@/server/forward'
+import type { HostConfig } from '@/server/host'
 import { parseForwardingSpec, serializeForwardingSpec } from './forwarding-spec'
 import type {
   ConfigConfigSchema,

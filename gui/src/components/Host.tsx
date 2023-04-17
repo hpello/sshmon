@@ -1,16 +1,16 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 
-import { CONNECT_REASON_AUTORETRY } from '../../../server/src/autoconnect/constants'
+import { CONNECT_REASON_AUTORETRY } from '@/server/autoconnect/constants'
 import type {
   AutoconnectState,
   AutoconnectSubState,
-} from '../../../server/src/autoconnect/reducer'
-import type { ForwardingState } from '../../../server/src/forward/reducer'
-import type { HostStatus } from '../../../server/src/host/actions'
-import type { HostState, HostSubState } from '../../../server/src/host/reducer'
-import type { APIClient } from '../api/client'
-import type { State } from '../types/redux'
+} from '@/server/autoconnect/reducer'
+import type { ForwardingState } from '@/server/forward/reducer'
+import type { HostStatus } from '@/server/host/actions'
+import type { HostState, HostSubState } from '@/server/host/reducer'
+import type { APIClient } from '@/gui/api/client'
+import type { State } from '@/gui/types/redux'
 import Forwarding from './Forwarding'
 import ForwardingCreate from './ForwardingCreate'
 import HostForm from './HostForm'

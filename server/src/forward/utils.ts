@@ -1,7 +1,7 @@
 import { find, flatten, some } from 'lodash'
 
-import type { HostStatus } from '../host'
-import type { Dispatch, State } from '../types/redux'
+import type { HostStatus } from '@/server/host'
+import type { Dispatch, State } from '@/server/types/redux'
 import { actions } from './actions'
 import type { ForwardingState } from './reducer'
 

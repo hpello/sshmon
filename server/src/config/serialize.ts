@@ -2,7 +2,7 @@ import { readFile, writeFile } from 'fs'
 import { dump as yamlDump, JSON_SCHEMA, load as yamlLoad } from 'js-yaml'
 import { promisify } from 'util'
 
-import { createLogger } from '../log'
+import { createLogger } from '@/server/log'
 import type { ConfigSchema } from './schema'
 import { configSchema } from './schema'
 

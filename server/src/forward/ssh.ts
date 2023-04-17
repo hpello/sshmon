@@ -1,6 +1,6 @@
 import { spawn } from 'child_process'
 
-import { createLogger } from '../log'
+import { createLogger } from '@/server/log'
 import type { ForwardingParams } from './types'
 import { fwdTypes } from './types'
 

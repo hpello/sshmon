@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import type { APIClient } from '../api/client'
+import type { APIClient } from '@/gui/api/client'
 import HostForm from './HostForm'
 
 interface Props {

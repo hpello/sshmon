@@ -8,7 +8,7 @@ import type {
   ThunkDispatch as ReduxThunkDispatch,
 } from 'redux-thunk'
 
-import type { Action as _Action, State as _State } from '../reducer'
+import type { Action as _Action, State as _State } from '@/server/reducer'
 
 export type Action = _Action
 export type State = _State

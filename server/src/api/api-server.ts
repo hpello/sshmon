@@ -1,4 +1,4 @@
-import type { Store } from '../types/redux'
+import type { Store } from '@/server/types/redux'
 import type { SocketNotify } from './socket-notify'
 import { createIO } from './socket-server'
 import { createServer as createStaticServer } from './static-server'
