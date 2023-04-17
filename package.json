@@ -28,8 +28,7 @@
   "bin": "server/build/cli.js",
   "pkg": {
     "assets": [
-      "gui/public",
-      "gui/node_modules/font-awesome/fonts",
+      "gui/dist",
       "server/node_modules/bunyan"
     ]
   },

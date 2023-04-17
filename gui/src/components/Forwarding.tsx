@@ -83,7 +83,7 @@ const makeStatus = (state: ForwardingSubState) => {
       <div className="is-inline-mobile" style={{ display: 'none' }}>
         <span className={colorClass}>
           <span className="icon is-small">
-            <i className="fa fa-circle" />
+            <i className="fa-solid fa-circle" />
           </span>
         </span>
       </div>
@@ -182,11 +182,11 @@ const makeForwardingDescription = (
                   href={[PROXY_PATH_PREFIX, id, fwdId].join('/').slice(1)}
                   style={{ padding: '0 3ch' } /* increase hitbox */}
                 >
-                  <i className="fa fa-link" />
+                  <i className="fa-solid fa-link" />
                 </a>
               ) : (
                 <span className="icon">
-                  <i className="fa fa-link" />
+                  <i className="fa-solid fa-link" />
                 </span>
               )
             )}
@@ -226,7 +226,7 @@ class Forwarding extends React.Component<Props, ComponentState> {
                     onClick={() => apiClient.forwardingConnect({ id, fwdId })}
                   >
                     <span className="icon is-small">
-                      <i className="fa fa-play" />
+                      <i className="fa-solid fa-play" />
                     </span>
                   </button>
                 ) : (
@@ -238,7 +238,7 @@ class Forwarding extends React.Component<Props, ComponentState> {
                     }
                   >
                     <span className="icon is-small">
-                      <i className="fa fa-stop" />
+                      <i className="fa-solid fa-stop" />
                     </span>
                   </button>
                 )}
@@ -252,7 +252,7 @@ class Forwarding extends React.Component<Props, ComponentState> {
                   }
                 >
                   <span className="icon is-small">
-                    <i className="fa fa-edit" />
+                    <i className="fa-solid fa-edit" />
                   </span>
                 </button>
               </div>

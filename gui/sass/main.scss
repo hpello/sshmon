@@ -1,6 +1,10 @@
 @charset "utf-8";
 
-@import '../node_modules/font-awesome/scss/font-awesome';
+@import '../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss';
+
+$fa-font-path: '../node_modules/@fortawesome/fontawesome-free/webfonts';
+@import '../node_modules/@fortawesome/fontawesome-free/scss/solid.scss';
+@import '../node_modules/@fortawesome/fontawesome-free/scss/brands.scss';
 
 @import '../node_modules/bulmaswatch/darkly/_variables';
 

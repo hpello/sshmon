@@ -1,18 +1,18 @@
 FROM node:18.14.2-alpine as server
 WORKDIR /opt/app
 COPY server/package.json server/yarn.lock ./
-RUN yarn
+RUN yarn --frozen-lockfile
 
 FROM node:18.14.2-alpine as gui
 WORKDIR /opt/app
 COPY gui/package.json gui/yarn.lock ./
-RUN yarn
+RUN yarn --frozen-lockfile
 
 
 FROM node:18.14.2-alpine as test
 WORKDIR /opt/app
 COPY test/package.json test/yarn.lock ./
-RUN yarn
+RUN yarn --frozen-lockfile
 COPY test/tsconfig.json ./
 
 FROM node:18.14.2-alpine
@@ -28,7 +28,7 @@ WORKDIR /opt/sshmon
 COPY --from=server /opt/app ./server
 COPY --from=gui /opt/app ./gui
 COPY package.json yarn.lock ./
-RUN yarn
+RUN yarn --frozen-lockfile
 
 COPY tsconfig.json ./
 COPY server/ server/

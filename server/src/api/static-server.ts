@@ -7,27 +7,16 @@ export const createServer = () => {
   server.use(plugins.gzipResponse())
 
   server.get(
-    '/build/fonts/*',
+    '/assets/*',
     plugins.serveStatic({
-      directory: join(
-        __dirname,
-        '../../../gui/node_modules/font-awesome/fonts'
-      ),
-      appendRequestPath: false,
-    })
-  )
-
-  server.get(
-    '/build/*',
-    plugins.serveStatic({
-      directory: join(__dirname, '../../../gui/public'),
+      directory: join(__dirname, '../../../gui/dist'),
     })
   )
 
   server.get(
     '/',
     plugins.serveStatic({
-      directory: join(__dirname, '../../../gui/public'),
+      directory: join(__dirname, '../../../gui/dist'),
       default: 'index.html',
     })
   )

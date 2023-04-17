@@ -31,7 +31,7 @@ export default class ForwardingCreate extends React.Component<
               }
             >
               <span className="icon is-small">
-                <i className="fa fa-plus"></i>
+                <i className="fa-solid fa-plus"></i>
               </span>
             </div>
           </div>

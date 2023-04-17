@@ -1,5 +1,8 @@
+// eslint-disable-next-line no-restricted-imports
+import '../sass/main.scss'
+
 import * as React from 'react'
-import * as ReactDOM from 'react-dom'
+import { createRoot } from 'react-dom/client'
 import { Provider } from 'react-redux'
 
 import { APIClient } from './api/client'
@@ -8,10 +11,12 @@ import { store } from './store'
 
 const apiClient = new APIClient(store)
 
-const Index = (
+const Index = () => (
   <Provider store={store}>
     <App apiClient={apiClient} />
   </Provider>
 )
 
-ReactDOM.render(Index, document.getElementById('root'))
+const container = document.getElementById('root') as HTMLElement
+const root = createRoot(container)
+root.render(<Index />)

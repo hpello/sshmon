@@ -87,7 +87,7 @@ const makeStatus = (state: HostSubState, autoconnect: AutoconnectSubState) => {
       <div className="is-inline-mobile" style={{ display: 'none' }}>
         <span className={colorClass}>
           <span className="icon is-small">
-            <i className="fa fa-circle" />
+            <i className="fa-solid fa-circle" />
           </span>
         </span>
       </div>
@@ -179,7 +179,7 @@ class Host extends React.Component<Props, ComponentState> {
                     transition: 'all 200ms ease-in-out',
                   }}
                 >
-                  <i className="fa fa-angle-right" />
+                  <i className="fa-solid fa-angle-right" />
                 </span>
               </div>
               <div className="column" style={{ marginRight: '0.5rem' }}>
