@@ -39,7 +39,7 @@ Go and have a look at the [Tutorial](docs/tutorial.md) to set up your first host
 ```bash
 yarn
 yarn build
-node server/build/cli.js
+yarn start
 ```
 
 ## Configure
@@ -81,15 +81,14 @@ yarn test
 
 SSHMon was developped thanks to the following projects (this list is not exhaustive!):
 
-- [Typescript](https://www.typescriptlang.org/)
-- [TSLint](https://palantir.github.io/tslint/)
-- [React.js](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [React](https://reactjs.org/)
 - [Redux](https://redux.js.org/)
 - [Bulma](https://bulma.io/)
 - [Bulmaswatch](https://jenil.github.io/bulmaswatch/)
-- [Socket.io](https://socket.io/)
+- [Socket.IO](https://socket.io/)
 - [Bunyan](https://github.com/trentm/node-bunyan)
-- [Pkg](https://github.com/zeit/pkg)
+- [pkg](https://github.com/zeit/pkg)
 
 ## TODO
 
@@ -97,4 +96,3 @@ SSHMon was developped thanks to the following projects (this list is not exhaust
 - Offer multiple GUI themes
 - Allow custom global SSH config options
 - Use BatchMode for `ProxyJump` SSH hosts
-- Run on Windows
