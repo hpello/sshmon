@@ -14,17 +14,6 @@ $family-monospace: monospace;
 @import '../node_modules/bulma/bulma';
 @import '../node_modules/bulmaswatch/darkly/_overrides';
 
-.panel {
-  > :first-child {
-    border-top-left-radius: $panel-heading-radius;
-    border-top-right-radius: $panel-heading-radius;
-  }
-  > :last-child {
-    border-bottom-left-radius: $panel-heading-radius;
-    border-bottom-right-radius: $panel-heading-radius;
-  }
-}
-
 // square icon buttons
 .button {
   height: auto;
@@ -42,7 +31,7 @@ $family-monospace: monospace;
 }
 
 // add border around tags to increase visibility (e.g. for darkly)
-.panel-block:first-child {
+.panel-block {
   .tag {
     box-shadow: 0 0 0 0.1em rgba(#eeeeee, 0.1) inset;
   }

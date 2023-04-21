@@ -153,7 +153,6 @@ const makeForwardingDescription = (
               )
             )}
           </span>
-          <span className="tag is-paddingless">:</span>
           <span className="tag" title="target (remote)">
             {makeCodeElement(spec.target)}
           </span>
@@ -165,7 +164,6 @@ const makeForwardingDescription = (
           <span className="tag" title="bind (remote)">
             {makeCodeElement(spec.bind)}
           </span>
-          <span className="tag is-paddingless">:</span>
           <span className="tag" title="target (local)">
             {makeCodeElement(spec.target)}
           </span>
@@ -191,7 +189,6 @@ const makeForwardingDescription = (
               )
             )}
           </span>
-          <span className="tag is-paddingless">:</span>
           <span className="tag" title="target (remote)">
             {makeCodeElement(spec.target)}
           </span>
