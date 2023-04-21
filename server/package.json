@@ -5,7 +5,7 @@
   "scripts": {
     "build": "tsc --outDir build && resolve-tspaths --out build",
     "build-watch": "tsc --outDir build --watch | ruby -ne 'puts $_.gsub(/\\x1Bc/, \"\")' & chokidar --slient build/ -c 'resolve-tspaths --out build'",
-    "clean": "! test -e build || rm -r build",
+    "clean": "rm -rf build",
     "start": "node build/cli.js"
   },
   "dependencies": {
