@@ -6,16 +6,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Install modules
         run: yarn
-      - name: Build modules
+      - name: Build
         run: yarn build
       - name: Check types for test module
         run: |
           yarn --cwd test
           yarn --cwd test tsc --noEmit
-      - name: Run ESLint
+      - name: Lint
         run: yarn lint
       - name: Check code style
         run: yarn prettier -c .
