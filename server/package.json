@@ -3,8 +3,8 @@
   "version": "",
   "license": "MIT",
   "scripts": {
-    "build": "tsc --outDir build",
-    "build-watch": "yarn build --watch | ruby -ne 'puts $_.gsub(/\\x1Bc/, \"\")'",
+    "build": "tsc --outDir build && resolve-tspaths --out build",
+    "build-watch": "tsc --outDir build --watch | ruby -ne 'puts $_.gsub(/\\x1Bc/, \"\")' & chokidar --slient build/ -c 'resolve-tspaths --out build'",
     "clean": "! test -e build || rm -r build",
     "start": "node build/cli.js"
   },
@@ -31,6 +31,8 @@
     "@types/restify": "^8.5.6",
     "@types/tmp": "0.2.3",
     "@types/yargs": "^17.0.22",
+    "chokidar-cli": "^3.0.0",
+    "resolve-tspaths": "^0.8.13",
     "typescript": "^4.9.5"
   }
 }
