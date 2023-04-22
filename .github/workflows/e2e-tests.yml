@@ -1,0 +1,13 @@
+name: Run end-to-end tests
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install modules
+        run: yarn
+      - name: Run tests
+        run: yarn test

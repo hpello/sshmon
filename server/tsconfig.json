@@ -3,7 +3,5 @@
   "compilerOptions": {
     "lib": ["es2018"]
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }

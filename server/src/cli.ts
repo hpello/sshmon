@@ -2,7 +2,8 @@ import * as yargs from 'yargs'
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'production'
 
-import { start, EngineOptions } from './engine'
+import type { EngineOptions } from './engine'
+import { start } from './engine'
 
 const argv = yargs
   .usage('Usage: $0 [options]')
@@ -10,11 +11,13 @@ const argv = yargs
     c: {
       alias: 'config-file',
       describe: 'Path to SSHMon config file',
-      type: 'string'
-    }
+      type: 'string',
+    },
   })
-  .help().alias('h', 'help')
-  .version().alias('v', 'version')
+  .help()
+  .alias('h', 'help')
+  .version()
+  .alias('v', 'version')
   .parse(process.argv)
 
-start(<any>argv as EngineOptions)
+start((<any>argv) as EngineOptions)

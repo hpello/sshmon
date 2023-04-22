@@ -1,0 +1,21 @@
+name: Run static checks
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install modules
+        run: yarn
+      - name: Build
+        run: yarn build
+      - name: Check types for test module
+        run: |
+          yarn --cwd test
+          yarn --cwd test tsc --noEmit
+      - name: Lint
+        run: yarn lint
+      - name: Check code style
+        run: yarn prettier -c .

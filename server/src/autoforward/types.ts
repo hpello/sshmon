@@ -1,4 +1,4 @@
 export type AutoforwardConfig = {
-  start: boolean,
+  start: boolean
   retry: boolean
 }

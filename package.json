@@ -5,30 +5,34 @@
   "scripts": {
     "build": "yarn --cwd server build && yarn --cwd gui build",
     "build-watch": "yarn --cwd server build-watch & yarn --cwd gui build-watch",
-    "lint": "tslint --project .",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx,.json",
+    "prettier-check": "prettier --check .",
     "clean": "yarn --cwd server clean && yarn --cwd gui clean",
     "tsc": "tsc --outDir /tmp/none",
     "tsc-watch": "yarn tsc --watch",
     "postinstall": "yarn --cwd server && yarn --cwd gui",
     "pkg": "mkdir -p build && pkg . -o build/sshmon",
-    "pkg-clean": "! test -e build || rm -r build",
+    "pkg-clean": "rm -rf build",
     "deploy": "yarn pkg-clean && yarn clean && yarn build && yarn pkg",
-    "test": "(cd test && make test) && yarn lint"
+    "test": "cd test && make test"
   },
   "devDependencies": {
-    "tslint": "^6.1.3",
-    "tslint-config-airbnb": "^5.9.2",
+    "@typescript-eslint/eslint-plugin": "^5.54.1",
+    "@typescript-eslint/parser": "^5.54.1",
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "prettier": "2.8.4",
     "typescript": "^4.9.5"
   },
   "bin": "server/build/cli.js",
   "pkg": {
     "assets": [
-      "gui/public",
-      "gui/node_modules/font-awesome/fonts",
+      "gui/dist",
       "server/node_modules/bunyan"
     ]
   },
   "dependencies": {
-    "pkg": "https://github.com/vercel/pkg#e3ac4902e9cb023f0ac2a596e21ff9166d2e268c"
+    "pkg": "^5.8.1"
   }
 }

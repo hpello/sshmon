@@ -1,6 +1,6 @@
 import * as os from 'os'
 
-import { SystemInfo, SystemStats } from './types'
+import type { SystemInfo, SystemStats } from './types'
 
 export const getSystemInfo = (): SystemInfo => {
   const arch = os.arch()
@@ -13,16 +13,31 @@ export const getSystemInfo = (): SystemInfo => {
   const { pid, platform } = process
   const nodeVersion = process.version
 
+  // eslint-disable-next-line @typescript-eslint/no-var-requires -- get version dynamically
   const { version } = require('../../../package.json')
 
-  return { arch, homeDir, hostName, nodeVersion, pid, platform, totalCPUs, totalMemoryBytes, user, version }
+  return {
+    arch,
+    homeDir,
+    hostName,
+    nodeVersion,
+    pid,
+    platform,
+    totalCPUs,
+    totalMemoryBytes,
+    user,
+    version,
+  }
 }
 
-const setTimeoutAsync = (timeout: number) => new Promise(resolve => setTimeout(resolve, timeout))
+const setTimeoutAsync = (timeout: number) =>
+  new Promise((resolve) => setTimeout(resolve, timeout))
 
 const CPU_USAGE_WINDOW = 1000
 
-export const getSystemStats = async (startTime: number): Promise<SystemStats> => {
+export const getSystemStats = async (
+  startTime: number
+): Promise<SystemStats> => {
   const startUsageTime = process.cpuUsage()
   await setTimeoutAsync(CPU_USAGE_WINDOW)
   const usage = process.cpuUsage(startUsageTime)

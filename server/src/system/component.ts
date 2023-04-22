@@ -1,4 +1,4 @@
-import { Store } from '../types/redux'
+import type { Store } from '@/server/types/redux'
 
 import { actions } from './actions'
 import { getSystemInfo, getSystemStats } from './utils'
@@ -17,9 +17,14 @@ export class System {
     this.store.dispatch(actions.systemAddInfo(info))
 
     const startTime = Date.now()
-    getSystemStats(startTime).then(stats => this.store.dispatch(actions.systemAddStats(stats)))
+    getSystemStats(startTime).then((stats) =>
+      this.store.dispatch(actions.systemAddStats(stats))
+    )
     setInterval(
-      () => getSystemStats(startTime).then(stats => this.store.dispatch(actions.systemAddStats(stats))),
+      () =>
+        getSystemStats(startTime).then((stats) =>
+          this.store.dispatch(actions.systemAddStats(stats))
+        ),
       SYSTEM_GET_STATS_INTERVAL
     )
   }

@@ -1,25 +1,18 @@
 @charset "utf-8";
 
-@import "../node_modules/font-awesome/scss/font-awesome";
+@import '../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss';
 
-@import "../node_modules/bulmaswatch/darkly/_variables";
+$fa-font-path: '../node_modules/@fortawesome/fontawesome-free/webfonts';
+@import '../node_modules/@fortawesome/fontawesome-free/scss/solid.scss';
+@import '../node_modules/@fortawesome/fontawesome-free/scss/brands.scss';
+
+@import '../node_modules/bulmaswatch/darkly/_variables';
 
 // some fonts (e.g. Monaco) do not have the same size as the other monospace fonts
 $family-monospace: monospace;
 
-@import "../node_modules/bulma/bulma";
-@import "../node_modules/bulmaswatch/darkly/_overrides";
-
-.panel {
-  >:first-child {
-    border-top-left-radius: $panel-heading-radius;
-    border-top-right-radius: $panel-heading-radius;
-  }
-  >:last-child {
-    border-bottom-left-radius: $panel-heading-radius;
-    border-bottom-right-radius: $panel-heading-radius;
-  }
-}
+@import '../node_modules/bulma/bulma';
+@import '../node_modules/bulmaswatch/darkly/_overrides';
 
 // square icon buttons
 .button {
@@ -38,7 +31,7 @@ $family-monospace: monospace;
 }
 
 // add border around tags to increase visibility (e.g. for darkly)
-.panel-block:first-child {
+.panel-block {
   .tag {
     box-shadow: 0 0 0 0.1em rgba(#eeeeee, 0.1) inset;
   }

@@ -1,4 +1,5 @@
-import { State, Store } from '../types/redux'
+import type { State, Store } from '@/server/types/redux'
+
 import { onStateChange } from './utils'
 
 export class Forwarder {
@@ -14,7 +15,8 @@ export class Forwarder {
     this.store.subscribe(() => {
       const state = this.store.getState()
 
-      process.nextTick(() => { // prevent recursion
+      process.nextTick(() => {
+        // prevent recursion
         onStateChange(this.prevState, state, this.store.dispatch)
         this.prevState = state
       })

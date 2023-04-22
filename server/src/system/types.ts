@@ -1,18 +1,18 @@
 export type SystemInfo = {
-  arch: string,
-  homeDir: string,
-  hostName: string,
-  nodeVersion: string,
-  pid: number,
-  platform: string,
+  arch: string
+  homeDir: string
+  hostName: string
+  nodeVersion: string
+  pid: number
+  platform: string
   totalCPUs: number
   totalMemoryBytes: number
-  user: string,
+  user: string
   version: string
 }
 
 export type SystemStats = {
-  cpuUsage: number,
+  cpuUsage: number
   memoryUsageBytes: number
   uptimeSeconds: number
 }

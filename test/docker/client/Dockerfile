@@ -1,31 +1,43 @@
+FROM node:18.14.2-alpine as server
+WORKDIR /opt/app
+COPY server/package.json server/yarn.lock ./
+RUN yarn --frozen-lockfile
+
+FROM node:18.14.2-alpine as gui
+WORKDIR /opt/app
+COPY gui/package.json gui/yarn.lock ./
+RUN yarn --frozen-lockfile
+
+
+FROM node:18.14.2-alpine as test
+WORKDIR /opt/app
+COPY test/package.json test/yarn.lock ./
+RUN yarn --frozen-lockfile
+COPY test/tsconfig.json ./
+
 FROM node:18.14.2-alpine
 
-# dependencies
 RUN apk add --update --no-cache openssh
-RUN apk add --update --no-cache git # install specific version of npm module
 
 COPY test/docker/client/ssh/id_rsa /root/.ssh/
 RUN chmod 600 /root/.ssh/id_rsa
 COPY test/docker/client/ssh/known_hosts /root/.ssh/
 
-# sshmon
 WORKDIR /opt/sshmon
 
+COPY --from=server /opt/app ./server
+COPY --from=gui /opt/app ./gui
 COPY package.json yarn.lock ./
-COPY gui/package.json gui/yarn.lock gui/
-COPY server/package.json server/yarn.lock server/
-RUN yarn
+RUN yarn --frozen-lockfile
 
-COPY tsconfig.json tslint.yml ./
+COPY tsconfig.json ./
 COPY server/ server/
 COPY gui/ gui/
 
 RUN yarn deploy
 
-# test
 WORKDIR /opt/test
-COPY test/docker/client/package.json test/docker/client/yarn.lock ./
-RUN yarn
+COPY --from=test /opt/app ./
 
 RUN apk add --update --no-cache bash
 

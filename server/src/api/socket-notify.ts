@@ -1,8 +1,9 @@
-import { Socket } from 'socket.io'
+import type { Socket } from 'socket.io'
+
+import { createLogger } from '@/server/log'
+import type { State } from '@/server/types/redux'
 
 import { socketTypes } from './constants'
-import { State } from '../types/redux'
-import { createLogger } from '../log'
 
 const log = createLogger(__filename)
 
@@ -15,7 +16,9 @@ export class SocketNotify {
   }
 
   register(socket: Socket) {
-    if (!this.sockets.has(socket)) { log.debug('register socket %s', socket.id) }
+    if (!this.sockets.has(socket)) {
+      log.debug('register socket %s', socket.id)
+    }
     this.sockets.add(socket)
     if (this.state !== null) {
       socket.emit(socketTypes.state, this.state)
@@ -23,7 +26,9 @@ export class SocketNotify {
   }
 
   unregister(socket: Socket) {
-    if (this.sockets.has(socket)) { log.debug('unregister socket %s', socket.id) }
+    if (this.sockets.has(socket)) {
+      log.debug('unregister socket %s', socket.id)
+    }
     this.sockets.delete(socket)
   }
 

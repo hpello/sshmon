@@ -3,21 +3,11 @@
   "version": "",
   "license": "MIT",
   "scripts": {
-    "mkbdir": "mkdir -p public/build",
-    "css-compile": "node-sass --recursive -o public/build/css sass",
-    "css-postcss": "postcss --use autoprefixer -d public/build/postcss --no-map public/build/css/*",
-    "css-build": "yarn css-compile && yarn css-postcss",
-    "css-watch": "yarn css-compile && (yarn css-compile --watch & yarn css-postcss --watch)",
-    "js-compile": "browserify src/index.tsx -o public/build/bundle.js --debug -p tsify",
-    "js-compile-watch": "watchify src/index.tsx -o public/build/bundle.js --debug -p tsify",
-    "js-uglify": "uglifyjs --source-map content=inline,url=bundle.min.js.map -o public/build/bundle.min.js public/build/bundle.js",
-    "js-uglify-watch": "chokidar public/build/bundle.js -c 'yarn js-uglify'",
-    "js-build": "yarn js-compile && yarn js-uglify",
-    "js-watch": "yarn js-compile-watch & yarn js-uglify-watch",
-    "build": "yarn mkbdir && yarn css-build && yarn js-build",
-    "build-watch": "yarn mkbdir && yarn css-watch & yarn js-watch",
-    "clean": "! test -e public/build || rm -r public/build",
-    "lint": "../node_modules/.bin/tslint -p ."
+    "clean": "rm -rf dist",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "build-watch": "vite build --watch"
   },
   "dependencies": {
     "bulma": "^0.9.4",
@@ -33,18 +23,12 @@
     "@types/react-dom": "^18.0.11",
     "@types/react-redux": "^7.1.25",
     "@types/redux-logger": "^3.0.6",
-    "@types/socket.io-client": "^3.0.0",
-    "autoprefixer": "^10.4.13",
-    "browserify": "^17.0.0",
+    "@vitejs/plugin-react": "^4.0.0-beta.0",
     "bulmaswatch": "^0.8.1",
-    "chokidar-cli": "^3.0.0",
-    "font-awesome": "^4.7.0",
-    "node-sass": "^8.0.0",
-    "postcss": "^8.1.0",
-    "postcss-cli": "^10.1.0",
-    "tsify": "^5.0.4",
+    "@fortawesome/fontawesome-free": "^6.4.0",
+    "sass": "^1.62.0",
     "typescript": "^4.9.5",
-    "uglify-es": "^3.3.9",
-    "watchify": "^4.0.0"
+    "vite": "^4.3.0",
+    "vite-tsconfig-paths": "^4.2.0"
   }
 }

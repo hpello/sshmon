@@ -1,4 +1,4 @@
-import { createLogger } from '../log'
+import { createLogger } from '@/server/log'
 
 const log = createLogger(__filename)
 
@@ -6,7 +6,10 @@ export const setupGracefulShutdown = (cleanup: () => Promise<any>) => {
   let exiting = false
   const gracefulExit = async (code: number) => {
     try {
-      if (exiting) { log.error('shutdown already requested'); return }
+      if (exiting) {
+        log.error('shutdown already requested')
+        return
+      }
       exiting = true
       await cleanup()
     } catch (err) {
@@ -26,6 +29,12 @@ export const setupGracefulShutdown = (cleanup: () => Promise<any>) => {
     gracefulExit(1)
   })
 
-  process.on('SIGTERM', () => { log.info('received SIGTERM'); gracefulExit(128 + 15) })
-  process.on('SIGINT', () => { log.info('received SIGINT'); gracefulExit(128 + 2) })
+  process.on('SIGTERM', () => {
+    log.info('received SIGTERM')
+    gracefulExit(128 + 15)
+  })
+  process.on('SIGINT', () => {
+    log.info('received SIGINT')
+    gracefulExit(128 + 2)
+  })
 }

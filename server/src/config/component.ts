@@ -1,6 +1,5 @@
-import * as stringify from 'json-stable-stringify'
-
 import { access, mkdir, stat, writeFile } from 'fs'
+import * as stringify from 'json-stable-stringify'
 import { homedir } from 'os'
 import { join } from 'path'
 import { promisify } from 'util'
@@ -9,18 +8,22 @@ const mkdirAsync = promisify(mkdir)
 const statAsync = promisify(stat)
 const writeFileAsync = promisify(writeFile)
 
-import { HostConfig, thunks as hostThunks } from '../host'
-import { ForwardingConfig, thunks as forwardThunks } from '../forward'
-import { AutoconnectConfig, thunks as autoconnectThunks } from '../autoconnect'
-import { AutoforwardConfig, thunks as autoforwardThunks } from '../autoforward'
-import { State, Store } from '../types/redux'
+import type { AutoconnectConfig } from '@/server/autoconnect'
+import { thunks as autoconnectThunks } from '@/server/autoconnect'
+import type { AutoforwardConfig } from '@/server/autoforward'
+import { thunks as autoforwardThunks } from '@/server/autoforward'
+import type { ForwardingConfig } from '@/server/forward'
+import { thunks as forwardThunks } from '@/server/forward'
+import type { HostConfig } from '@/server/host'
+import { thunks as hostThunks } from '@/server/host'
+import { createLogger } from '@/server/log'
+import type { State, Store } from '@/server/types/redux'
 
 import { actions as configActions } from './actions'
 import { configObjectToState, configStateToObject } from './convert'
-import { ConfigSchema } from './schema'
+import type { ConfigSchema } from './schema'
 import { load, save } from './serialize'
-import { ConfigConfig, ConfigType } from './types'
-import { createLogger } from '../log'
+import type { ConfigConfig, ConfigType } from './types'
 
 const log = createLogger(__filename)
 
@@ -41,18 +44,36 @@ const dispatchConfigActions = async (config: ConfigType, store: Store) => {
 }
 
 const extractConfigFromState = (state: State): ConfigType => {
-  const hosts: { id: string, config: HostConfig }[] = state.hosts.map(({ id, config }) => ({ id, config }))
-  const forwardings:  { id: string, fwdId: string, config: ForwardingConfig }[] = state.forwardings.map(({ id, fwdId, config }) => ({ id, fwdId, config }))
-  const autoconnects: { id: string, config: AutoconnectConfig }[] = state.autoconnects.map(({ id, config }) => ({ id, config }))
-  const autoforwards: { id: string, fwdId: string, config: AutoforwardConfig }[] = state.autoforwards.map(({ id, fwdId, config }) => ({ id, fwdId, config }))
+  const hosts: { id: string; config: HostConfig }[] = state.hosts.map(
+    ({ id, config }) => ({ id, config })
+  )
+  const forwardings: { id: string; fwdId: string; config: ForwardingConfig }[] =
+    state.forwardings.map(({ id, fwdId, config }) => ({ id, fwdId, config }))
+  const autoconnects: { id: string; config: AutoconnectConfig }[] =
+    state.autoconnects.map(({ id, config }) => ({ id, config }))
+  const autoforwards: {
+    id: string
+    fwdId: string
+    config: AutoforwardConfig
+  }[] = state.autoforwards.map(({ id, fwdId, config }) => ({
+    id,
+    fwdId,
+    config,
+  }))
   const config: ConfigConfig = state.config
   return { hosts, forwardings, autoconnects, autoforwards, config }
 }
 
-const saveConfigIfNeeded = async (state: State, prevState: State, path: string) => {
+const saveConfigIfNeeded = async (
+  state: State,
+  prevState: State,
+  path: string
+) => {
   const config = extractConfigFromState(state)
   const prevConfig = extractConfigFromState(prevState)
-  if (stringify(config) === stringify(prevConfig)) { return }
+  if (stringify(config) === stringify(prevConfig)) {
+    return
+  }
 
   const configObject = configStateToObject(config)
   if (config.config.autosave) {
@@ -71,8 +92,8 @@ const exist = async (path: string): Promise<boolean> => {
 
 const defaultConfig = (): ConfigSchema => ({
   config: {
-    autosave: true
-  }
+    autosave: true,
+  },
 })
 
 const ensureDefaultConfigFile = async (): Promise<string> => {
@@ -89,7 +110,9 @@ const ensureDefaultConfigFile = async (): Promise<string> => {
     await save(defaultConfig(), configFile)
   }
   const statFile = await statAsync(configFile)
-  if ((statFile.mode & 0o022) !== 0) { throw new Error(`Bad permissions for config file ${configFile}`) }
+  if ((statFile.mode & 0o022) !== 0) {
+    throw new Error(`Bad permissions for config file ${configFile}`)
+  }
 
   return configFile
 }
@@ -107,7 +130,10 @@ export class Config {
   }
 
   async setup(params: { configPath: string | null }) {
-    this.configPath = params.configPath !== null ? params.configPath : await ensureDefaultConfigFile()
+    this.configPath =
+      params.configPath !== null
+        ? params.configPath
+        : await ensureDefaultConfigFile()
 
     log.info('config file is', this.configPath)
     const config = await load(this.configPath)
