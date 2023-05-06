@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc --outDir build && resolve-tspaths --out build",
-    "build-watch": "tsc --outDir build --watch | ruby -ne 'puts $_.gsub(/\\x1Bc/, \"\")' & chokidar --slient build/ -c 'resolve-tspaths --out build'",
+    "build-watch": "tsc --outDir build --watch | ruby -ne 'puts $_.gsub(/\\x1Bc/, \"\")' & chokidar build/ --slient -c 'resolve-tspaths --out build'",
     "clean": "rm -rf build",
     "start": "node build/cli.js"
   },
