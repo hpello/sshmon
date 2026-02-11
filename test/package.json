@@ -3,7 +3,7 @@
   "version": "",
   "license": "MIT",
   "dependencies": {
-    "axios": "^1.8.2",
+    "axios": "^1.13.5",
     "chai": "^4.1.2"
   },
   "devDependencies": {
